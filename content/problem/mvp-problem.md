@@ -1,5 +1,5 @@
 ---
-title: "Masalah dengan MVP"
+title: "Force Close dengan MVP Android"
 date: 2020-08-22T11:40:43+08:00
 draft: false
 image: "img/portfolio/problem-mvp.jpg"
@@ -7,7 +7,7 @@ showonlyimage: false
 weight: 0
 ---
 
-Design patern MVP pertama kali saya gunakan saat mengikuti program beasiswa dari dicoding, ketika itu saya meniru apa yang diajarkan dan tidak ada yang kurang sama sekali. Walaupun saya tiru 100% contoh coding dari training masalah ini masih muncul.
+Design patern MVP pertama kali saya terapkan saat mengikuti kelas beasiswa dari dicoding, ketika itu saya meniru apa yang diajarkan dan tidak ada yang kurang sama sekali. Walaupun saya tiru 100% contoh coding dari tutorial masalah ini masih muncul.
 
 <!--more-->
 
@@ -29,4 +29,4 @@ Solusinya adalah dengan menggunakan null safety pada constructor view di present
 **Contoh fragment yang mengimplementasi ContohView**
 {{< gist muchlist 1f1d882eb3983908ebc0f93061eb550a >}}
 
-Dengan menerapkan cara ini, masalah force close pada saat pergantian tampilan yang cepat di aplikasi android dengan MVP Design Pattern akan teratasi.
+Dengan menerapkan cara ini, masalah force close pada saat pergantian tampilan yang cepat di aplikasi Android dengan MVP Design Pattern akan teratasi.

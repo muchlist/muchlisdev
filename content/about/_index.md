@@ -1,41 +1,52 @@
 +++
 date = "2016-11-05T21:05:33+05:30"
-title = "Tentang Saya"
+title = "Hallo, Saya Muchlis"
 +++
 
-An sincerity so extremity he additions. Her yet **there truth merit**. Mrs all projecting favourable now unpleasing. Son law garden chatty temper. Oh children provided to mr elegance marriage strongly. Off can admiration prosperous now devonshire diminution law.
+![Muchlis][1]
 
-Received overcame oh sensible so at an. Formed do change merely to county it. **Am separate contempt** domestic to to oh. On relation my so addition branched. Put hearing cottage she norland letters equally prepare too. Replied exposed savings he no viewing as up. Soon body add him hill. No father living really people estate if. Mistake do produce beloved demesne if am pursuit.
+Saya adalah pengembang Android berpengalaman yang selalu tertarik dengan teknologi dan tren terbaru.
 
-![This is me][1]
+Saya telah memperoleh pengalaman kerja di berbagai bidang dan akhir-akhir ini saya berkonsentrasi pada pengembangan software di platform Android.
 
-The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli, but the Little Blind Text didn't listen. She packed her seven versalia, put her initial into the belt and made herself on the way.
+Saya memiliki total lebih dari dua tahun pengalaman pengembangan fullstack Android aktif. Saya telah mengerjakan beberapa proyek untuk perusahaan tempat saya bekerja.
 
-#### Keterampilan
-* Android Kotlin
+Saya senang sekali belajar hal-hal baru. Saat ini, fokus saya adalah pada fitur Jetpack, Dependency Injection, Testing Dan tentu saja saya selalu siap untuk mencoba pustaka Android terbaru.  
+Pada backend saya sedang mendalami Golang untuk peforma yang lebih baik daripada Django dan Flask.
+
+Untuk daftar lengkap pekerjaan saya, silakan merujuk ke halaman [Portofolio][portfolio].
+
+Jika Anda tertarik untuk bekerja sama dengan saya, jangan ragu untuk menghubungi saya melalui media sosial atau [form kontak][kontak].
+
+---
+
+#### Keahlian
+* Android Kotlin Mvvm/Mvp arsitektur
 * Android Java
 * Backend Python Flask/Django
 * Backend Golang
-* Backend ASP NET (try)
 * DB MongoDB
 * DB Postgresql
-* Angular (try)
 * Linux
 * Jaringan komputer - Mikrotik/Cisco
 * Docker
 * Git / Github
-
+* Backend ASP NET Core (try)
+* Angular (try)
+* Vue Js (try)
 ---
 
 #### Pengalaman Kerja
-* Kepala teknisi di Nasa Luxury Club tahun 2010 sampai dengan 2015
-* IT di Pelindo III Sampit dan Banjarmasin tahun 2015 sampai sekarang
+1. Kepala teknisi di Nasa Luxury Club tahun 2010 - 2015
+2. IT di Pelindo III Sampit dan Banjarmasin tahun 2015 sampai sekarang
 
 ---
 
 #### Pendidikan
 * Jurusan Teknik Audio Video (Elektronika) SMKN 5 Banjarmasin
-* Teknik Informatika Uniska Banjarmasin
+* Teknik Informatika Universitas Islam Kalimantan (Uniska) Banjarmasin
 
 
 [1]: /img/muchlis.png
+[portfolio]: {{< ref "portfolio/" >}}
+[kontak]: {{< ref "contact/" >}}

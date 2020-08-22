@@ -2,10 +2,10 @@
 title: "{{ replace .Name "-" " " | title }}"
 date: {{ .Date }}
 draft: true
-image: "img/portfolio/label-clothes.jpg"
+image: "img/portfolio/problem-mvp.jpg"
 showonlyimage: false
 weight: 0
 ---
 
-contoh
+Template
 <!--more-->

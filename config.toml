@@ -14,7 +14,7 @@ googleAnalytics = ""
   description = "Situs Portofolio Muchlis"
   copyright = "&copy;2020 Muchlis"
   sidebarAbout = [
-    "Saya membuat aplikasi android dan backend dengan 2 tahun pengalaman pemrograman.",
+    "Selamat datang, saya Muchlis. Saya adalah pengembang Android dan Backend berpengalaman yang selalu tertarik dengan teknologi dan tren terbaru.",
     "Banjarmasin-Indonesia."
   ]
   # Contact page
@@ -29,7 +29,7 @@ googleAnalytics = ""
      # - send a dummy email yourself to confirm your account
      # - click the confirm link in the email from www.formspree.io
      # - you're done. Happy mailing!
-  email = "you@yoursite.com"
+  email = "whois.muchlis@gmail.com"
 
     # Optional Matomo analytics (formerly piwik)
       # [params.analytics.matomo]
@@ -47,11 +47,7 @@ googleAnalytics = ""
   home = true
 
   [[params.navlinks]]
-  name = "Blog"
-  url = "blog/"
-
-  [[params.navlinks]]
-  name = "Problem dan Solusi"
+  name = "Problem Solving"
   url = "problem/"
 
   [[params.navlinks]]

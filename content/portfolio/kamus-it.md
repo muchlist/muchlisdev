@@ -1,8 +1,8 @@
 ---
 date: "2016-11-05T19:41:01+05:30"
-title: "Kamus IT"
+title: "Kamus IT (2019)"
 draft: false
-image: "img/portfolio/unnamed.webp"
+image: "img/portfolio/kamus-it-front.webp"
 showonlyimage: false
 weight: 2
 tags: ["kotlin", "retrofit", "mvvm"]
@@ -16,6 +16,8 @@ Sejak 2015, saya memiliki blog tentang IT. Karena terlalu mengoptimalkan SEO mak
 
 ![kamus it][image]
 
+{{< gplaybadge "https://play.google.com/store/apps/details?id=com.muchlis.kamusit&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1">}}
+
 #### Fitur
 - Pencarian istilah komputer dengan database online
 - Penjelasan seringkas dan sepadat mungkin
@@ -26,16 +28,18 @@ Sejak 2015, saya memiliki blog tentang IT. Karena terlalu mengoptimalkan SEO mak
 
 
 
-#### Teknologi yang Digunakan
+#### Teknologi yang digunakan
 1. Android Native / Kotlin
 2. Retrofit2
 3. Jetpack Navigation
-4. Django
+4. Backend Django
 5. Postgresql
 6. Heroku
+  
 
-#### Masalah dan Solusi
-[Solusi pada Bug penerapan design pattern][bug]
+#### Masalah & solusi
+* [Solusi pada Bug penerapan design pattern][bug]
+* Heroku free akan membuat aplikasi ini terlihat lemot saat load data karena server akan tidur jika tidak diakses dalam 30 menit. Solusinya adalah dengan menerapkan offline first atau membayar server.
 
 
 #### Credits
