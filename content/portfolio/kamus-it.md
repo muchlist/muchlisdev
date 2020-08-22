@@ -12,7 +12,7 @@ categories: ["android"]
 Aplikasi kamus yang berisi penjelasan istilah, tips dan tutorial dalam teknologi informasi.
 <!--more-->
 
-Sejak 2015, saya memiliki blog tentang hacker (level script kiddie). Karena terlalu mengoptimalkan SEO maka satu tulisan dalam blog dibuat minimal 800 kata. Disinilah masalahnya. Ada banyak istilah-istilah yang bisa dijelaskan dengan singkat yang ingin saya tulis juga namun berlawanan dengan aturan pada blog saya itu (artikel harus panjang). Maka saya membuat aplikasi ini.
+Sejak 2015, saya memiliki blog tentang IT. Karena terlalu mengoptimalkan SEO maka satu tulisan dalam blog dibuat minimal 800 kata. Disinilah masalahnya. Ada banyak istilah-istilah yang bisa dijelaskan dengan singkat yang ingin saya tulis juga namun berlawanan dengan aturan pada blog saya itu (artikel harus panjang). Maka saya membuat aplikasi ini.
 
 ![kamus it][image]
 
@@ -34,9 +34,13 @@ Sejak 2015, saya memiliki blog tentang hacker (level script kiddie). Karena terl
 5. Postgresql
 6. Heroku
 
+#### Masalah dan Solusi
+[Solusi pada Bug penerapan design pattern][bug]
+
 
 #### Credits
 - **Muchlis** sebagai android dan backend developer 
 
 
 [image]: /img/portfolio/kamus-it.jpg
+[bug]: {{< ref "problem/mvp-problem.md" >}}

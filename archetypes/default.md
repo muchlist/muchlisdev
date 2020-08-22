@@ -7,3 +7,5 @@ showonlyimage: false
 weight: 0
 ---
 
+contoh
+<!--more-->

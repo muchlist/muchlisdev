@@ -51,6 +51,10 @@ googleAnalytics = ""
   url = "blog/"
 
   [[params.navlinks]]
+  name = "Problem dan Solusi"
+  url = "problem/"
+
+  [[params.navlinks]]
   name = "Tentang Saya"
   url = "about/"
 
@@ -61,11 +65,12 @@ googleAnalytics = ""
   [params.social]
   facebook      = ""
   googleplus    = ""
-  email         = "email@example.com"
+  email         = "whois.muchlis@gmail.com"
   twitter       = ""
-  linkedin      = "full profile url in linkedin"
+  linkedin      = "https://www.linkedin.com/in/muchlis-mrts/"
   stackoverflow = ""
-  instagram     = "full profile url in instagram"
-  github        = "full profile url in github"
-  youtube       = "full profile url in youtube"
-  whatsapp      = "wa.me service link"
+  instagram     = "https://www.instagram.com/ig_muchlis/"
+  github        = "https://github.com/muchlist"
+  youtube       = ""
+  whatsapp      = "https://wa.me/6281231847434?text=Saya%20melihat%20portofolio%20kamu%20di%20muchlis_netlify_app"
+
