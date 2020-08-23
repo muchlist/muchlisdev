@@ -14,7 +14,7 @@ Aplikasi kamus yang berisi penjelasan istilah, tips dan tutorial dalam teknologi
 
 Sejak 2015, saya memiliki blog tentang IT. Karena terlalu mengoptimalkan SEO maka satu tulisan dalam blog dibuat minimal 800 kata. Disinilah masalahnya. Ada banyak istilah-istilah yang bisa dijelaskan dengan singkat yang ingin saya tulis juga namun berlawanan dengan aturan pada blog saya itu (artikel harus panjang). Maka saya membuat aplikasi ini.
 
-![kamus it][image]
+![kamus it][gif]
 
 {{< gplaybadge "https://play.google.com/store/apps/details?id=com.muchlis.kamusit&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1">}}
 
@@ -45,6 +45,5 @@ Sejak 2015, saya memiliki blog tentang IT. Karena terlalu mengoptimalkan SEO mak
 #### Credits
 - **Muchlis** sebagai android dan backend developer 
 
-
-[image]: /img/portfolio/kamus-it.jpg
+[gif]: /img/portfolio/kamus-it.gif
 [bug]: {{< ref "problem/mvp-problem.md" >}}
