@@ -1,4 +1,4 @@
-baseurl = "https://muchlis.netlify.app"
+baseurl = "https://muchlis.dev"
 title = "Muchlis Portfolio"
 theme = "hugo-creative-portfolio-theme"
 languageCode = "id-ID"

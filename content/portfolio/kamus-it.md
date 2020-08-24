@@ -37,13 +37,13 @@ Sejak 2015, saya memiliki blog tentang IT. Karena terlalu mengoptimalkan SEO mak
 6. Heroku
   
 
-#### Masalah & solusi
-* [Solusi pada Bug penerapan design pattern][bug]
-* Heroku free akan membuat aplikasi ini terlihat lemot saat load data karena server akan tidur jika tidak diakses dalam 30 menit. Solusinya adalah dengan menerapkan offline first atau membayar server.
-
-
 #### Credits
 - **Muchlis** sebagai android dan backend developer 
+
+
+#### Masalah & solusi development
+* [Solusi pada Bug penerapan design pattern][bug]
+* Heroku free akan membuat aplikasi ini lambat saat load data karena server akan tidur jika tidak diakses dalam 30 menit. Solusinya adalah dengan menerapkan offline first atau membayar server.
 
 [gif]: /img/portfolio/kamus-it.gif
 [bug]: {{< ref "problem/mvp-problem.md" >}}

@@ -2,7 +2,6 @@
 title: "Force Close dengan MVP Android"
 date: 2020-08-22T11:40:43+08:00
 draft: false
-image: "img/portfolio/problem-mvp.jpg"
 showonlyimage: false
 weight: 0
 ---

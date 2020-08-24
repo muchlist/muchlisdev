@@ -43,13 +43,12 @@ Electronic Container Damage Report mempercepat, mempermudah dan memperkuat lapor
 6. Lokal Ubuntu server di lokasi
   
 
-#### Masalah & solusi
-* [Menggunakan Server Lokal untuk restfull api dan di onlinekan menggunakan IP Publik, tapi ada masalah.][problem]
-* Pada awalnya saya mengembangkan aplikasi ini lengkap dengan fitur persetujuan oleh pengguna jasa (pengguna jasa  memiliki akun sehingga dapat memantau kontainer miliknya), namun fitur tersebut dihilangkan karena suatu hal. Bukan karena fiturnya salah.
-
 #### Credits
 - **Muchlis** sebagai android dan backend developer 
 - **Muh Junaedhy** sebagai pemilik ide awal
+
+#### Masalah & solusi development
+* [Masalah dalam menggunakan server Lokal untuk restfull api dan IP Publik.][problem]
 
 [gif]: /img/portfolio/ecdr.gif
 [problem]: {{< ref "problem/local-server-problem.md" >}}

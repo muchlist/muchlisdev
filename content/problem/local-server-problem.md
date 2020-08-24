@@ -2,7 +2,6 @@
 title: "Restfull di jaringan lokal dan internet menggunakan IP Publik"
 date: 2020-08-23T10:12:29+08:00
 draft: false
-image: "img/portfolio/problem-mvp.jpg"
 showonlyimage: false
 weight: 0
 ---
