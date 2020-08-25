@@ -48,7 +48,7 @@ Electronic Container Damage Report mempercepat, mempermudah dan memperkuat lapor
 - **Muh Junaedhy** sebagai pemilik ide awal
 
 #### Masalah/solusi dalam development
-* [Masalah dalam menggunakan server Lokal untuk restfull api dan IP Publik.][problem]
+* [Problem dalam menggunakan server Lokal dan IP Publik untuk Restfull Api][problem]
 
 [gif]: /img/portfolio/ecdr.gif
 [problem]: {{< ref "problem/local-server-problem.md" >}}
