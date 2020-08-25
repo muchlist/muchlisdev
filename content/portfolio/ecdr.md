@@ -1,10 +1,10 @@
 ---
-title: "Electronic Container Damage Report (2019)"
+title: "Electronic Container Damage Report (2020)"
 date: 2020-08-22T23:55:25+08:00
 draft: false
 image: "img/portfolio/ecdr-flow.webp"
 showonlyimage: false
-weight: 1
+weight: 2
 ---
 
 Electronic Container Damage Report mempercepat, mempermudah dan memperkuat laporan kerusakan kontainer.
@@ -44,10 +44,10 @@ Electronic Container Damage Report mempercepat, mempermudah dan memperkuat lapor
   
 
 #### Credits
-- **Muchlis** sebagai android dan backend developer 
+- **Muchlis** sebagai Android dan Backend developer 
 - **Muh Junaedhy** sebagai pemilik ide awal
 
-#### Masalah & solusi development
+#### Masalah/solusi dalam development
 * [Masalah dalam menggunakan server Lokal untuk restfull api dan IP Publik.][problem]
 
 [gif]: /img/portfolio/ecdr.gif

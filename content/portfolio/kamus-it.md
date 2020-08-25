@@ -4,7 +4,7 @@ title: "Kamus IT (2019)"
 draft: false
 image: "img/portfolio/kamus-it-front.webp"
 showonlyimage: false
-weight: 2
+weight: 3
 tags: ["kotlin", "retrofit", "mvvm"]
 categories: ["android"]
 ---
@@ -38,10 +38,10 @@ Sejak 2015, saya memiliki blog tentang IT. Karena terlalu mengoptimalkan SEO mak
   
 
 #### Credits
-- **Muchlis** sebagai android dan backend developer 
+- **Muchlis** sebagai Android dan Backend developer 
 
 
-#### Masalah & solusi development
+#### Masalah/solusi dalam development
 * [Solusi pada Bug penerapan design pattern][bug]
 * Heroku free akan membuat aplikasi ini lambat saat load data karena server akan tidur jika tidak diakses dalam 30 menit. Solusinya adalah dengan menerapkan offline first atau membayar server.
 

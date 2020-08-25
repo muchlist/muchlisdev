@@ -3,7 +3,7 @@ title: "Force Close dengan MVP Android"
 date: 2020-08-22T11:40:43+08:00
 draft: false
 showonlyimage: false
-weight: 0
+weight: 1
 ---
 
 Design patern MVP pertama kali saya terapkan saat mengikuti kelas beasiswa dari dicoding, ketika itu saya meniru apa yang diajarkan dan tidak ada yang kurang sama sekali. Walaupun saya tiru 100% contoh coding dari tutorial masalah ini masih muncul.
