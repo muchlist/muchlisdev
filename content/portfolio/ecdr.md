@@ -4,7 +4,9 @@ date: 2020-08-22T23:55:25+08:00
 draft: false
 image: "img/portfolio/ecdr-flow.webp"
 showonlyimage: false
-weight: 2
+weight: 19
+tags: ["kotlin", "retrofit", "mvvm", "flask"]
+categories: ["android"]
 ---
 
 Electronic Container Damage Report mempercepat, mempermudah dan memperkuat laporan kerusakan kontainer.

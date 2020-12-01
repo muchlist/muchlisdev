@@ -4,10 +4,12 @@ date: 2020-08-24T21:38:25+08:00
 draft: false
 image: "img/portfolio/inventaris-front.gif"
 showonlyimage: false
-weight: 1
+weight: 18
+tags: ["kotlin", "retrofit", "mvvm", "flask"]
+categories: ["android"]
 ---
 
-Aplikasi multi fungsi untuk kebutuhan pendataan perangkat IT, stok, riwayat pemeliharaan, pekerjaan harian, status CCTV dll.
+Aplikasi untuk kebutuhan pendataan perangkat IT, stok, riwayat pemeliharaan, pekerjaan harian, status CCTV dll.
 <!--more-->
 
 ![itventory][image]

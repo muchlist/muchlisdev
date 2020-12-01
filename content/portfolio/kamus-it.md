@@ -4,8 +4,8 @@ title: "Kamus IT (2019)"
 draft: false
 image: "img/portfolio/kamus-it-front.webp"
 showonlyimage: false
-weight: 3
-tags: ["kotlin", "retrofit", "mvvm"]
+weight: 20
+tags: ["kotlin", "retrofit", "mvvm", "django"]
 categories: ["android"]
 ---
 
