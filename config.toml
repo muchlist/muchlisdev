@@ -12,7 +12,7 @@ googleAnalytics = ""
   # Use custom.css for your custom styling
   style = "sea"
   description = "Situs Portofolio Muchlis"
-  copyright = "&copy;2020 Muchlis"
+  copyright = "&copy;2021 Muchlis"
   sidebarAbout = [
     "Selamat datang, saya Muchlis. Saya adalah pengembang Android dan Backend berpengalaman yang selalu tertarik dengan teknologi dan tren terbaru.",
     "Banjarmasin-Indonesia."
