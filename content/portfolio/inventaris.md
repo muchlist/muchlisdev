@@ -51,5 +51,5 @@ Aplikasi untuk kebutuhan pendataan perangkat IT, stok, riwayat pemeliharaan, pek
 * Masih dalam tahap pengembangan
 * Solusi menghindari blocking ping cctv
 
-[image]: /img/portfolio/inventaris.gif
+[image]: /img/portfolio/inventaris2.gif
 [problem]: {{< ref "problem/local-server-problem.md" >}}
