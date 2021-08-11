@@ -52,4 +52,4 @@ Aplikasi untuk kebutuhan pendataan perangkat IT, stok, riwayat pemeliharaan, pek
 * Solusi menghindari blocking ping cctv
 
 [image]: /img/portfolio/inventaris2.gif
-[problem]: {{< ref "problem/local-server-problem.md" >}}
+[problem]: {{< ref "blog/local-server-problem.md" >}}

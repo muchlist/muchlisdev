@@ -53,4 +53,4 @@ Electronic Container Damage Report mempercepat, mempermudah dan memperkuat lapor
 * [Problem dalam menggunakan server Lokal dan IP Publik untuk Restfull Api][problem]
 
 [gif]: /img/portfolio/ecdr.gif
-[problem]: {{< ref "problem/local-server-problem.md" >}}
+[problem]: {{< ref "blog/local-server-problem.md" >}}

@@ -46,4 +46,4 @@ Sejak 2015, saya memiliki blog tentang IT. Karena terlalu mengoptimalkan SEO mak
 * Heroku free akan membuat aplikasi ini lambat saat load data karena server akan tidur jika tidak diakses dalam 30 menit. Solusinya adalah dengan menerapkan offline first atau membayar server.
 
 [gif]: /img/portfolio/kamus-it.gif
-[bug]: {{< ref "problem/mvp-problem.md" >}}
+[bug]: {{< ref "blog/mvp-problem.md" >}}
