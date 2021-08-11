@@ -89,11 +89,6 @@ hasil pemeriksaan dikirimkan ke user menggunakan `firebase`.
   database yang caseSensitif untuk memaksimalkan indexing, memastikan nilai yang di input array<T> apabila array nil.
 - Api (folder client) merupakan aplikasi pihak luar. aplikasi bisa berkomunikasi dengan api pihak luar menggunakan rest api.
 
-#### Latar belakang
-1. Adanya keperluan server latihan untuk pengembangan aplikasi mobile yang mengimplementasi otorisasi JWT.
-2. Penggunaan service-service gratis kebanyakan hanya mengijinkan method http GET saja sedangkan untuk pembelajaran diperlukan juga inputan menggunakan method POST, PUT dan Delete.
-3. Sebagai bentuk kontribusi pertama saya kepada programmer lain.
-
 
 #### Source Code
 - [Risa Backend](https://github.com/muchlist/risa_restfull) : SourceCode Risa Golang
