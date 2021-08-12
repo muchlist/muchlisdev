@@ -5,14 +5,13 @@ title = "Hallo, Saya Muchlis"
 
 ![Muchlis][1]
 
-Saya adalah pengembang Backend dan Android berpengalaman yang selalu tertarik dengan teknologi dan tren terbaru.
+Saya adalah pengembang Aplikasi dengan role Backend dan Frontend Android.
 
 Saya telah memperoleh pengalaman kerja di berbagai bidang dan akhir-akhir ini saya berkonsentrasi pada pengembangan software di platform Android, terutama Flutter.
 
-Saya memiliki total lebih dari tiga tahun pengalaman pengembangan fullstack Android aktif. Saya telah mengerjakan beberapa proyek untuk perusahaan tempat saya bekerja.
+Saya memiliki total lebih dari tiga tahun di bidang pemrograman. Saya telah mengerjakan beberapa proyek untuk perusahaan tempat saya bekerja. Menerima berbagai macam penghargaan baik pada acara resmi maupun tidak.
 
-Saya senang sekali belajar hal-hal baru. Saat ini, saya sedang mencoba Flutter.  
-Pada Backend saya sedang mendalami Golang untuk peforma yang lebih baik daripada Django dan Flask.
+Saya senang sekali belajar hal-hal baru dengan membaca buku, mengikuti e-course dan semacamnya.
 
 Untuk daftar lengkap pekerjaan saya, silakan merujuk ke halaman [Portofolio][portfolio].
 
