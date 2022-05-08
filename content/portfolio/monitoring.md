@@ -1,8 +1,8 @@
 ---
-title: "Monitoring (2020)"
+title: "Metrics menggunakan Prometheus dan Grafana (2020)"
 date: 2020-11-20T21:38:25+08:00
 draft: false
-image: "/img/portfolio/monitoring_front.png"
+image: "/img/portfolio/monitoring_win1.webp"
 showonlyimage: false
 weight: 17
 ---

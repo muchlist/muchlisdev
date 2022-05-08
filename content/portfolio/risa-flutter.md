@@ -4,15 +4,15 @@ date: 2021-02-29T21:38:25+08:00
 draft: false
 image: "/img/portfolio/risa-front.webp"
 showonlyimage: false
-weight: 13
+weight: 14
 tags: ["flutter", "dart"]
 categories: ["android"]
 ---
 
-ITVentory yang diperbarui. Aplikasi Android untuk kebutuhan pendataan pencatatan pemeliharaan perangkat IT, pengiriman laporan, monitoring dll. [Flutter, Dart].
+Aplikasi Android untuk kebutuhan pendataan pencatatan pemeliharaan perangkat IT, pengiriman laporan, alert & monitoring. [Flutter, Dart].
 <!--more-->
 
-Risa menggunakan flutter sebagai antarmukanya dan Golang sebagai backend, menjadikannya sebagai aplikasi paling stabil sejauh ini dengan kendala/error/keluhan 0 di regional Kalimantan. Risa digunakan oleh IT dan Vendor di Regional Kalimantan (Banjarmasin, Sampit, Bagendang, Kotabaru, Batulicin, Kumai, Bumiharjo). Risa dapat diunduh di playstore namun aksesnya sangat terbatas untuk umum.
+Risa menggunakan flutter sebagai mobile apps dan Golang sebagai backend. Aplikasi ini digunakan oleh IT dan Vendor di Regional Kalimantan (Banjarmasin, Sampit, Bagendang, Kotabaru, Batulicin, Kumai, Bumiharjo). Risa dapat diunduh di playstore namun aksesnya terbatas hanya untuk pegawai Pelindo.
 
 {{< gplaybadge "https://play.google.com/store/apps/details?id=dev.muchlis.risa2&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1">}}
 

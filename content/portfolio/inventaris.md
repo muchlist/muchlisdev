@@ -44,9 +44,6 @@ Aplikasi untuk kebutuhan pendataan perangkat IT, stok, riwayat pemeliharaan, pek
 7. ReportLab python
 8. Pandas python
 
-#### Credits
-- **Muchlis** sebagai Android dan Backend developer
-
 #### Masalah/solusi dalam development
 * Masih dalam tahap pengembangan
 * Solusi menghindari blocking ping cctv

@@ -5,37 +5,34 @@ title = "Hallo, Saya Muchlis"
 
 ![Muchlis][1]
 
-Saya adalah pengembang Aplikasi dengan role Backend dan Frontend Android.
+Saya adalah seorang Software Engineer yang berfokus pada dua bidang, yaitu Backend dan Mobile Apps. Saat ini saya bekerja secara profesional sebagai Backend Engineer.
 
-Saya telah memperoleh pengalaman kerja di berbagai bidang dan akhir-akhir ini saya berkonsentrasi pada pengembangan software di platform Android, terutama Flutter.
+Saya telah memperoleh pengalaman kerja di berbagai bidang (termasuk yang tidak relevan dengan pemrograman) yaitu Lead technician, IT, Network Engineer, lalu memulai pekerjaan sebagai programmer sejak 2018. Saya telah membuat, mengoptimasi, merawat dan melakukan dokumentasi beberapa proyek pada perusahaan tempat saya bekerja. Saya juga menerima berbagai macam penghargaan baik pada acara resmi maupun tidak.
 
-Saya memiliki total lebih dari tiga tahun di bidang pemrograman. Saya telah mengerjakan beberapa proyek untuk perusahaan tempat saya bekerja. Menerima berbagai macam penghargaan baik pada acara resmi maupun tidak.
-
-Saya senang sekali belajar hal-hal baru dengan membaca buku, mengikuti e-course dan semacamnya.
+Saya senang sekali belajar hal-hal baru seperti mengikuti e-course dan semacamnya, teutama membaca buku.
 
 Untuk daftar lengkap pekerjaan saya, silakan merujuk ke halaman [Portofolio][portfolio].
 
-Jika Anda tertarik untuk bekerja sama dengan saya, jangan ragu untuk menghubungi saya melalui media sosial atau [form kontak][kontak].
+Jika Anda tertarik untuk berdiskusi dengan saya, jangan ragu untuk menghubungi saya melalui media sosial atau [form kontak][kontak].
 
 ---
 
 #### Keahlian
-* Flutter
 * Backend Golang
+* Flutter
 * DB MongoDB
-* DB Postgresql
-* Prometheus
-* Linux
-* Jaringan komputer - Mikrotik/Cisco
-* Docker
+* DB Postgresql/Mysql
 * Git / Github
-* <s>Android Kotlin Mvvm/Mvp arsitektur</s>
-* <s>Backend Python Flask/Django</s>
+* Linux
+* Docker
+* Prometheus
+* Jaringan komputer - Mikrotik/Cisco
 ---
 
 #### Pengalaman Kerja
 1. IT di Pelindo III Sampit tahun 2015 sampai 2020
-1. IT di Pelindo III Banjarmasin tahun 2020 sampai sekarang
+2. IT di Pelindo III Banjarmasin tahun 2020 sampai 2021
+3. Backend Engineer di PT. Majoo Indonesia tahun 2021 sampai sekarang
 
 ---
 

@@ -6,17 +6,17 @@ showonlyimage: false
 weight: 1
 ---
 
-Design patern MVP pertama kali saya terapkan saat mengikuti kelas beasiswa dari dicoding, ketika itu saya meniru apa yang diajarkan dan tidak ada yang kurang sama sekali. Walaupun saya tiru 100% contoh coding dari tutorial masalah ini masih muncul.
+Design patern MVP pertama kali saya terapkan saat mengikuti kelas beasiswa dari dicoding, ketika itu saya meniru apa yang diajarkan dan tidak ada yang kurang sama sekali. Walaupun saya tiru 100% contoh coding dari tutorial, ternyata masalah ini masih muncul.
 
 <!--more-->
 
 #### Masalah
-Dengan design pattern MVP (Model - View - Presenter) pada android ternyata setiap pergantian activity atau fragment ke activity lain dengan sangat cepat (kurang dari satu detik) bisa menyebabkan force close karena view yang diminta null. Misalnya dengan klik2 tombol navigasi dengan cepat.
+Dengan design pattern MVP (Model - View - Presenter) pada android ternyata setiap pergantian activity atau fragment ke activity lain yang dilakukan dengan sangat cepat (kurang dari satu detik) dapat menyebabkan force close karena view yang diminta null. Misalnya dengan klik2 tombol navigasi dengan cepat.
 
-Tentu saja ini bukan masalah pada design patternnya, namun pada cara implementasi yang saya gunakan.
+Tentu saja ini bukan masalah pada design patternnya, namun pada cara implementasi yang saya gunakan (dan tutorial tersebut gunakan).
 
 #### Solusi
-View yang null bukanlah view tujuan, namun view activity asal yang masih akan dipanggil oleh presenter ketika programnya masih berjalan. Jadi presenter masih jalan saat aktifitynya sudah berganti namun masih memanggil aktifity lama dalam prosesnya. Terjadilah forceclose karena dianggap viewnya masih aktifity lama.
+View yang null bukanlah view tujuan, namun view activity asal yang masih akan dipanggil oleh presenter ketika programnya masih berjalan. Jadi presenter masih jalan saat aktifitynya sudah berganti namun masih memanggil aktifity lama dalam prosesnya. Terjadilah force close karena dianggap viewnya masih aktifity lama.
 Solusinya adalah dengan menggunakan null safety pada constructor view di presenter.
 
 **Contoh class presenter**

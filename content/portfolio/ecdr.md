@@ -45,10 +45,6 @@ Electronic Container Damage Report mempercepat, mempermudah dan memperkuat lapor
 6. Lokal Ubuntu server di lokasi
   
 
-#### Credits
-- **Muchlis** sebagai Android dan Backend developer 
-- **Muh Junaedhy** sebagai pemilik ide awal
-
 #### Masalah/solusi dalam development
 * [Problem dalam menggunakan server Lokal dan IP Publik untuk Restfull Api][problem]
 

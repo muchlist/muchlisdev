@@ -4,17 +4,16 @@ date: 2021-02-29T21:38:25+08:00
 draft: false
 image: "/img/portfolio/penghargaan.webp"
 showonlyimage: false
-weight: 14
+weight: 15
 tags: ["reward"]
 categories: ["backend"]
 ---
 
-Penghargaan Ide terimplementasi terbaik untuk 2 aplikasi Android di acara Innoreactivation Pelindo III pada 23 Maret 2021
+Penghargaan untuk ide terimplementasi terbaik untuk 2 mobile apps di acara Innoreactivation Pelindo III pada 23 Maret 2021
 <!--more-->
 
 
-Sebagai fullstack Android Developer saya berhasil membuat 2 aplikasi sekaligus di tahun yang sama dan benar2 di implementasikan pada seluruh Regional Kalimantan dan Pelabuhan Bagendang. Yaitu aplikasi ITVentory (pemeliharaan perangkat IT) dan ECDR (Electronic Container Damage Reports). Kedua aplikasi ini membawa pengaruh yang baik, dan alhamdulillah memenangkan 2 penghargaan atas ide terimplementasi.
-Pada penerapan pola operasi, ide perbaikannya saya dibantu oleh teman teman IT dan Operasional.  
+Alhamdulillah, puji syukur kepada tuhan. Sebagai pengembang aplikasi mobile (Android) sekaligus backend saya menerima penghargaan atas 2 aplikasi. Aplikasi ini di implementasikan 100% pada seluruh Regional Kalimantan dan Pelabuhan Bagendang. Yaitu aplikasi ITVentory (pemeliharaan perangkat IT) dan ECDR (Electronic Container Damage Reports). Kedua aplikasi ini membawa pengaruh yang baik serta menerima response positif yang diwakili oleh masing-masing General-Manager cabang sehingga memenangkan 2 penghargaan atas ide terimplementasi terbaik.  
 
 {{< youtube vpgBQyws3Lc >}}  
  . 

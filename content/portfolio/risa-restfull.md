@@ -4,12 +4,12 @@ date: 2021-02-29T21:38:25+08:00
 draft: false
 image: "/img/portfolio/risa-icon.jpg"
 showonlyimage: false
-weight: 15
+weight: 13
 tags: ["golang", "mongodb", "jwt"]
 categories: ["backend"]
 ---
 
-Backend Aplikasi untuk kebutuhan pendataan perangkat IT, stok, riwayat pemeliharaan, pekerjaan harian, monitoring dll. [Golang, Mongodb].
+Restfull-API dan scheduler untuk kebutuhan pendataan perangkat IT, stok, riwayat pemeliharaan, pekerjaan harian, monitoring dll. [Golang, Mongodb].
 <!--more-->
 
 

@@ -9,7 +9,7 @@ tags: ["golang", "mongodb", "jwt"]
 categories: ["backend"]
 ---
 
-Restfull api gratis untuk komunitas programmer Kalimantan. [Golang, Mongodb].
+Restfull api untuk komunitas programmer Kalimantan mempelajari JWT. [Golang, Mongodb].
 <!--more-->
 
 KalselDev adalah layanan restfull api gratis untuk melatih programmer pemula menggunakan respon dari server sungguhan, alih-alih respon palsu.
