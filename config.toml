@@ -48,7 +48,7 @@ googleAnalytics = ""
 
   [[params.navlinks]]
   name = "Blog"
-  url = "blog/"
+  url = "https://blog.muchlis.dev"
 
   [[params.navlinks]]
   name = "Tentang Saya"
@@ -63,10 +63,9 @@ googleAnalytics = ""
   googleplus    = ""
   email         = "whois.muchlis@gmail.com"
   twitter       = ""
-  linkedin      = "https://www.linkedin.com/in/muchlis-mrts/"
+  linkedin      = "https://www.linkedin.com/in/muchlisdev/"
   stackoverflow = ""
   instagram     = "https://www.instagram.com/ig_muchlis/"
   github        = "https://github.com/muchlist"
   youtube       = ""
-  whatsapp      = "https://wa.me/6281231847434?text=Saya%20melihat%20portofolio%20kamu%20di%20muchlis_netlify_app"
 
