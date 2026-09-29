@@ -66,12 +66,4 @@ Most of the list held. The interesting part is *why* in each case, because the r
 5. Internationalization and multi-currency, on both the server and the client
 6. The landing page at [kalsel.dev](https://www.kalsel.dev/), also mine
 
-#### Where the name came from
-
-The domain is one I have used before.
-
-In 2021 `kalsel.dev` served [KalselDev](/portfolio/kalseldev/), a free REST API I ran so that beginner programmers in Kalimantan could practise against a real server with real authorization instead of a mock. It was retired years ago, and that article on this site says the domain "now serves something else."
-
-This is the something else. Same name, same person, still free — only now it is pointed at people who will never read a line of the code.
-
 Kazz is on [Google Play](https://play.google.com/store/apps/details?id=dev.kalsel.kazz), rated 4.8 from 181 reviews.
