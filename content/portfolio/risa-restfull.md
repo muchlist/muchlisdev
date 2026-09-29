@@ -1,95 +1,68 @@
 ---
-title: "Risa Restfull-API (2021)"
+title: "Risa REST API (2021)"
 date: 2021-02-28T21:38:25+08:00
 draft: false
 image: "/img/portfolio/risa-icon.jpg"
 showonlyimage: false
 weight: 13
-tags: ["golang", "mongodb", "jwt"]
+tags: ["golang", "mongodb", "jwt", "fiber"]
 categories: ["backend"]
 ---
 
-Restfull-API dan scheduler untuk kebutuhan pendataan perangkat IT, stok, riwayat pemeliharaan, pekerjaan harian, monitoring dll. [Golang, Mongodb].
+Backend and scheduler for Risa, the IT asset and maintenance system used across Pelindo III's Kalimantan region. [Golang, MongoDB].
 <!--more-->
 
+Risa is what IT staff and vendors across seven Pelindo III branches in Kalimantan used to track equipment, maintenance history, daily checks, and stock. This is its backend: a Golang REST API on Fiber, MongoDB for storage, and a scheduler watching device health in the background. The [Flutter app](/portfolio/risa-flutter/) is the other half.
 
-RestfulApi Backend for Risa Aplication Pelindo III using Golang (Fiber) and MongoDB.  
-[Risa Backend](https://github.com/muchlist/risa_restfull) : SourceCode Risa_Restfull  
+#### One search box across every device type
+- Built `gen_unit`, a projection collection mirroring the fields every device has in common, so that a single search field could find anything in the estate regardless of its category.
 
+![The gen_unit projection behind a single search box][genunit]
 
-{{< gplaybadge "https://play.google.com/store/apps/details?id=dev.muchlis.risa2&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1">}}
+The request was easy to state and awkward to implement. Staff wanted to type a device name or an IP address into one box and find it, without first deciding whether they were looking for a CCTV camera, a computer, or an application. Each category has its own shape and its own collection, so no single query could reach across all of them.
 
-#### Fitur
-- riwayat pemeliharaan
-- penarikan laporan
-- data inventaris alat
-- stok manajemen
-- monitoring speed test, cctv
-- checklist pengecekan harian
-- checklist maintenance cctv oleh vendor
-- tugas perbaikan / kemajuan
-- notifikasi perangkat bermasalah
+`gen_unit` answers that by keeping one slim entry per device — name, IP, category, branch — written alongside every create, edit, and delete, and refreshed whenever a device's history changes. Nobody writes to it directly; it is maintained behind the scenes. The vocabulary I would use now is *read model*, and I would build it again. What I would not repeat is the search itself: it scans, so it slows as the estate grows. Moving it to Elasticsearch was already the plan on record.
 
+#### Tracking work on a device
+- Modeled `history` as a status lifecycle — info, in progress, awaiting approval, pending, complete — with nested entries, so one incident can be replayed and reported over a date range.
 
+Every incomplete history entry increments a `cases` counter on that device's `gen_unit` entry, and completing it decrements the counter. Same trade as above: the write path does more work so a list of devices can show which ones need attention without a second query per row.
 
-#### Dependency lokal
+#### Daily checks that follow the shift
+- Generated check lists from templates, matched to whichever shift is running at the moment the check is created.
 
-- [ErruUtils](https://github.com/muchlist/erru_utils_go/)  
-  Library ini digunakan untuk memformat response error dan logger sehingga response error memiliki format yang standart
-  di setiap service (berguna jika akan mengimplementasikan microservice).
+An item flagged as a problem does not vanish when the check is submitted — it reappears on the next one, and keeps reappearing until somebody resolves it. `checklist_cctv` is deliberately separate: vendor maintenance runs on its own cadence and is done by different hands.
 
-#### Dependency pihak ketiga
+#### Stock as a single document
+- Stored each stock item as one document, with usage and restock entries as children that adjust a `qty` field on write.
 
-- [Go Fiber Framework](https://github.com/gofiber/fiber/) : Web framework golang yang memiliki kemiripan dengan express
-  js dan menggunakan fast-http (tidak berbeda jauh dengan gin dan echo).
-- [Mongo go driver](https://go.mongodb.org/mongo-driver/) : Saat ini service ini full menggunakan MongoDB.
-- [JWT go](https://github.com/dgrijalva/jwt-go/)
-- [Ozzo validation](https://github.com/go-ozzo/ozzo-validation/) : Library yang digunakan untuk validasi request body
-  dari user.
-- [Go Cron](https://github.com/go-co-op/gocron/) : Scheduller
-- [Maroto](https://github.com/johnfercher/maroto/) : Framework pembuatan PDF
-- [Firebase](https://firebase.google.com/go/v4) : Notifikasi realtime ke Android.  
+MongoDB makes this shape cheap and it suited the volume. A stock item and its movements are almost always read together and never read by anyone else, so there was nothing to gain by splitting them.
 
-#### LOG
-- `gen_unit` domain. `gen_unit` digunakan untuk meng-collect semua perangkat dengan hanya menyimpan data umumnya saja
-  dan meninggalkan data detil.
-  `gen_unit` dibuat karena ada permintaan dari client agar semua perangkat dapat dicari menggunakan satu buah kolom
-  pencarian tanpa harus memilih kategori. Semakin banyak data akan semakin lambat sehingga kedepan akan diganti
-  menggunakan database elasticsearch. domain ini tidak bersentuhan secara langsung dengan user dari segi inputan.
-  updatenya akan dilakukan dibelakang layar berdasarkan : pembuatan perangkat pada kategori apapun, pengeditan jika nama,
-  ip , category, cabang berubah. dan penghapusan. serta ada update pada history/incident.  `gen_unit` juga memuat data ping alamat ip kghusus perangkat
-yang memiliki ip address.
-- `history` digunakan untuk mencatat semua riwayat perangkat, riwayat ini memiliki status info (0), progress (1),
-  persetujuan pending (2), pending (3), complete (4). Setiap penambahan `history` yang belum komplit akan mengupdate
-  field `cases` pada domain `gen_unit` dan jika `history` diubah statusnya menjadi complete maka case di `gen_unit` akan dikurangi.
-  `history` memiliki `history` lagi didalamnya untuk keperluan tracking perubahan dan pembuatan laporan
-  berdasarkan range waktu tertentu.
-- `cctv`, `computer`, `application` dll yang serupa memuat data inventaris.
-- `check` menggenerate daftar tempat atau perangkat yang harus di cek dengan menyesuaikan waktu shifts realtime.
-  `check item` yang ditandai have problem juga akan di munculkan pada saat pembuatan check berikutnya.
-- `check item` sebagai template item yang mana saja yang mau di cek. didalamnya ada slice shift untuk dimunculkan
-  saat `check` dibuat.
-- `checklist_cctv` membuat ceklist maintenance harian atau bulanan cctv oleh vendor cctv
-- `stock` menyimpan stock sebagai satu buah dokumen saja , pemakaian dan penambahan stok dijadikan sebagai child didalam
-  dokumen dan setiap perubahannya akan mempengaruhi field QTY pada stock.
-- `scheduller` setiap satu jam sistem akan memeriksa cctv yang status pingnya down. status ping didapatkan dari inputan aplikasi lain bernama pingers.
-hasil pemeriksaan dikirimkan ke user menggunakan `firebase`.  
+#### The scheduler
+- Ran an hourly job to find CCTV cameras failing their ping and push a notification to the affected users through Firebase.
 
+The ping results come from a separate small service called *pingers*. Keeping that out of the API meant the long-running network work never sat in the request path.
 
-### Struktur :
+#### Structure
 
-#### Middleware > Handler > Service > Dao || Api
+Handler → Service → Dao, with a separate client package for outside services.
 
-- Handler digunakan untuk mengekstrak inputan dari user. params, query, json body, claims dari jwt serta validasi input
-  ,termasuk memastikan dan menimpa huruf besar atau kecil.
-- Service digunakan untuk bisnis logic, menggabungkan dua atau lebih dao atau utilitas pembantu lainnya, mengisi data
-  yang dibutuhkan dao misalnya saat perpindahan dari requestData (data sedikit) ke Data (data banyak). termasuk merubah
-  string menjadi ObjectID dan Pengecekan IP address.
-- Dao berkomunikasi langsung ke database. Beberapa kasus juga memastikan inputan huruf besar dan kecil pada inputan
-  database yang caseSensitif untuk memaksimalkan indexing, memastikan nilai yang di input `array<T>` apabila array nil.
-- Api (folder client) merupakan aplikasi pihak luar. aplikasi bisa berkomunikasi dengan api pihak luar menggunakan rest api.
+- **Handler** extracts and validates input — params, query, JSON body, JWT claims — and normalizes case before anything downstream sees it.
+- **Service** holds the business logic: composing two or more DAOs, converting strings to ObjectIDs, filling in what a DAO needs.
+- **Dao** talks to the database. Case normalization matters again here, because an index on a case-sensitive field is only useful if the values going in are consistent.
 
+This is the ancestor of the golden path repository I set up years later at [Hukumonline](/portfolio/hukumonline/) — the same instinct to keep business logic away from the database driver, arrived at before I had the vocabulary for it.
 
-#### Source Code
-- [Risa Backend](https://github.com/muchlist/risa_restfull) : SourceCode Risa Golang
-- [Risa Flutter](https://github.com/muchlist/risa2) : SourceCode Risa Flutter
+#### Tech stack
+1. Golang, Fiber
+2. MongoDB
+3. gocron for scheduling, Maroto for PDF reports, Firebase for push notifications, ozzo-validation for request bodies
+4. [erru_utils](https://github.com/muchlist/erru_utils_go) — a small library of my own giving every service the same error response and log format
+
+One dependency has aged badly: JWT signing went through `dgrijalva/jwt-go`, which was later abandoned by its author and superseded by the maintained `golang-jwt/jwt` fork. Anything still building on it today should move.
+
+#### Source code
+- [risa_restfull](https://github.com/muchlist/risa_restfull) — the Golang backend
+- [risa2](https://github.com/muchlist/risa2) — the Flutter app
+
+[genunit]: /img/portfolio/risa-gen-unit.svg
