@@ -2,48 +2,48 @@
 date: "2016-11-05T19:41:01+05:30"
 title: "Kamus IT (2019)"
 draft: false
-image: "img/portfolio/kamus-it-front.webp"
+image: "/img/portfolio/kamus-it-front.webp"
 showonlyimage: false
 weight: 20
 tags: ["kotlin", "retrofit", "mvvm", "django"]
 categories: ["android"]
 ---
 
-Aplikasi kamus yang berisi penjelasan istilah, tips dan tutorial dalam teknologi informasi.
+A dictionary of IT terms, built because my own blog's SEO rules made short explanations impossible to publish. [Kotlin, Django, PostgreSQL].
 <!--more-->
 
-Sejak 2015, saya memiliki blog tentang IT. Karena terlalu mengoptimalkan SEO maka satu tulisan dalam blog dibuat minimal 800 kata. Disinilah masalahnya. Ada banyak istilah-istilah yang bisa dijelaskan dengan singkat yang ingin saya tulis juga namun berlawanan dengan aturan pada blog saya itu (artikel harus panjang). Maka saya membuat aplikasi ini.
+#### Why a blog needed an app
 
-![kamus it][gif]
+I had been writing an IT blog since 2015. Somewhere along the way I optimised it for search until every post had to run at least 800 words, and that rule quietly made a whole category of writing impossible.
 
-{{< gplaybadge "https://play.google.com/store/apps/details?id=com.muchlis.kamusit&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1">}}
+Plenty of terms can be explained properly in three sentences. Padding those three sentences out to 800 words does not serve the person who came looking for the answer; it serves the ranking. So the short explanations needed somewhere else to live. Kamus IT is what the blog's own rules would not let it publish.
 
-#### Fitur
-- Pencarian istilah komputer dengan database online
-- Penjelasan seringkas dan sepadat mungkin
-- Navigasi antar artikel yang saling berhubungan melalui link
-- Tombol menuju ke halaman web dimana penjelasan lanjutannya tersedia (fitur ini dihilangkan karena blog saya dianggap menulis artikel yang berbahaya, padahal tidak)
-- Sorting hasil pencarian berdasarkan abjad atau update terakhir
-- Data yang terus diperbaharui (heroku premium dihentikan karena saya keberatan dengan biaya servernya, hehe)
+![Kamus IT][gif]
 
+#### A glossary is only useful when the entries point at each other
 
+The feature that matters here is not the search box. It is that an explanation can link to the other terms it leans on, so reading one entry leads into the next.
 
-#### Teknologi yang digunakan
-1. Android Native / Kotlin
-2. Retrofit2
-3. Jetpack Navigation
-4. Backend Django
-5. Postgresql
-6. Heroku
-  
+A term you do not understand, explained using four more terms you do not understand, is the failure mode of every glossary. Cross-links are the cheapest repair for it, and they are the reason this is a dictionary rather than a list. Results sort alphabetically or by what changed most recently.
 
-#### Credits
-- **Muchlis** sebagai Android dan Backend developer 
+#### The sleeping server
 
+Django and PostgreSQL on Heroku's free tier, which puts a dyno to sleep after thirty minutes without traffic. For an app nobody opens continuously, that meant a good share of first searches paid a cold start before anything appeared on screen.
 
-#### Masalah/solusi dalam development
-* [Solusi pada Bug penerapan design pattern][bug]
-* Heroku free akan membuat aplikasi ini lambat saat load data karena server akan tidur jika tidak diakses dalam 30 menit. Solusinya adalah dengan menerapkan offline first atau membayar server.
+I wrote the options down at the time as *go offline-first, or pay for the server*. I paid, and later stopped paying because the cost was not worth it to me — at which point the updates stopped too.
+
+Offline-first was the right answer, and not mainly because of the money. A dictionary is close to the ideal case for it: the dataset is small, it changes rarely, and it gets read constantly. Sync a local copy, answer every search from it, refresh in the background when there is a network. The cold start becomes invisible, search becomes instant in a way a round trip never can be, and the app keeps working while the server sleeps — or, as it turned out, after it is switched off for good.
+
+That is the part I would change. The hosting decision and the architecture decision were tangled together, and offline-first would have pulled them apart: whether the app was useful would not have depended on whether I was still paying a monthly bill.
+
+#### Tech stack
+1. Android native, Kotlin
+2. Retrofit2, Jetpack Navigation
+3. Django and PostgreSQL
+4. Heroku
+
+#### The first one
+
+Kamus IT is the oldest project on this site and the first of three Kotlin apps. [ITventory](/portfolio/inventaris/) and [ECDR](/portfolio/ecdr/) followed in 2020, and [Risa](/portfolio/risa-flutter/) replaced the whole approach a year after that. The app is no longer listed on the Play Store.
 
 [gif]: /img/portfolio/kamus-it.gif
-[bug]: {{< ref "blog/mvp-problem.md" >}}
