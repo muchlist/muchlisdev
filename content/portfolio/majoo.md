@@ -2,7 +2,7 @@
 title: "Backend Engineer at Majoo Indonesia (2021 - 2022)"
 date: 2022-08-31T09:00:00+08:00
 draft: false
-image: "/img/portfolio/majoo-card.svg"
+image: "/img/portfolio/majoo.webp"
 showonlyimage: false
 weight: 12
 tags: ["golang", "kafka", "prometheus", "pprof"]
