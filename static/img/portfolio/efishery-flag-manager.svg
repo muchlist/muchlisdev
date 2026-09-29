@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 452" width="900" height="452" role="img" aria-labelledby="t d">
+  <title id="t">Flag Manager feature flag caching at eFishery</title>
+  <desc id="d">Without caching, every feature flag check makes its own network call to the flag provider. Flag Manager keeps flags in process memory and refreshes them in the background, so the vast majority of flag reads are answered locally.</desc>
+
+  <defs>
+    <marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#8c9a9a"/>
+    </marker>
+    <marker id="at" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#379392"/>
+    </marker>
+  </defs>
+
+  <style>
+    .band  { fill:#f7fafa; stroke:#e6eded; stroke-width:1; }
+    .bl    { font:600 11px Roboto,Helvetica,Arial,sans-serif; fill:#8c9a9a; letter-spacing:1.2px; }
+    .box   { fill:#ffffff; stroke:#cdcdcd; stroke-width:1.5; }
+    .boxa  { fill:#ffffff; stroke:#379392; stroke-width:1.5; }
+    .boxk  { fill:#eef7f7; stroke:#379392; stroke-width:1.5; }
+    .bt    { font:500 14px Roboto,Helvetica,Arial,sans-serif; fill:#333333; text-anchor:middle; }
+    .bs    { font:400 11px Roboto,Helvetica,Arial,sans-serif; fill:#999999; text-anchor:middle; }
+    .ln    { stroke:#8c9a9a; stroke-width:1.5; fill:none; }
+    .lnd   { stroke:#8c9a9a; stroke-width:1.5; fill:none; stroke-dasharray:5 4; }
+    .lnt   { stroke:#379392; stroke-width:2; fill:none; }
+    .el    { font:400 11px Roboto,Helvetica,Arial,sans-serif; fill:#8c9a9a; text-anchor:middle; }
+    .elt   { font:500 11px Roboto,Helvetica,Arial,sans-serif; fill:#379392; text-anchor:middle; }
+    .note  { font:400 13px Roboto,Helvetica,Arial,sans-serif; fill:#666666; text-anchor:middle; }
+  </style>
+
+  <!-- bands -->
+  <rect class="band" x="20" y="44" width="860" height="140" rx="8"/>
+  <rect class="band" x="20" y="224" width="860" height="190" rx="8"/>
+  <text class="bl" x="38" y="68">BEFORE &#183; EVERY CHECK CROSSES THE NETWORK</text>
+  <text class="bl" x="38" y="248">WITH FLAG MANAGER &#183; SERVED FROM MEMORY</text>
+
+  <!-- band 1: repeated round trips -->
+  <text class="el" x="450" y="92">one network call per flag check</text>
+  <path class="ln" d="M224,113 L664,113" marker-end="url(#ag)"/>
+  <path class="ln" d="M224,127 L664,127" marker-end="url(#ag)"/>
+  <path class="ln" d="M224,141 L664,141" marker-end="url(#ag)"/>
+
+  <rect class="box" x="44"  y="100" width="180" height="54" rx="6"/>
+  <text class="bt" x="134" y="122">Service</text>
+  <text class="bs" x="134" y="139">checks a flag</text>
+
+  <rect class="box" x="676" y="100" width="180" height="54" rx="6"/>
+  <text class="bt" x="766" y="122">Flag Provider</text>
+  <text class="bs" x="766" y="139">remote</text>
+
+  <!-- band 2: cached reads -->
+  <path class="lnt" d="M224,313 L338,313" marker-end="url(#at)"/>
+  <text class="elt" x="284" y="305">IsEnabled()</text>
+
+  <path class="lnd" d="M550,313 L664,313" marker-end="url(#ag)"/>
+  <text class="el" x="607" y="305">background refresh</text>
+
+  <rect class="box"  x="44"  y="286" width="180" height="54" rx="6"/>
+  <text class="bt" x="134" y="308">Service</text>
+  <text class="bs" x="134" y="325">checks a flag</text>
+
+  <rect class="boxk" x="350" y="286" width="200" height="54" rx="6"/>
+  <text class="bt" x="450" y="308">Flag Manager</text>
+  <text class="bs" x="450" y="325">in-process cache</text>
+
+  <rect class="box"  x="676" y="286" width="180" height="54" rx="6"/>
+  <text class="bt" x="766" y="308">Flag Provider</text>
+  <text class="bs" x="766" y="325">remote</text>
+
+  <!-- note -->
+  <text class="note" x="450" y="370">Reads are answered from memory and the cache is refreshed on its own schedule,</text>
+  <text class="note" x="450" y="389">so flag lookups stopped scaling with request volume &#8212; 90% fewer network calls.</text>
+</svg>

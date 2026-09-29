@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 452" width="900" height="452" role="img" aria-labelledby="t d">
+  <title id="t">Asynchronous COGS calculation flow at Majoo</title>
+  <desc id="d">A sale is recorded by the Transaction API and answered immediately. The same API publishes an event to Kafka Pub/Sub, where a COGS worker consumes it and recalculates cost of goods sold outside the request path.</desc>
+
+  <defs>
+    <marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#8c9a9a"/>
+    </marker>
+    <marker id="at" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#379392"/>
+    </marker>
+  </defs>
+
+  <style>
+    .band  { fill:#f7fafa; stroke:#e6eded; stroke-width:1; }
+    .bl    { font:600 11px Roboto,Helvetica,Arial,sans-serif; fill:#8c9a9a; letter-spacing:1.2px; }
+    .box   { fill:#ffffff; stroke:#cdcdcd; stroke-width:1.5; }
+    .boxa  { fill:#ffffff; stroke:#379392; stroke-width:1.5; }
+    .boxk  { fill:#eef7f7; stroke:#379392; stroke-width:1.5; }
+    .bt    { font:500 14px Roboto,Helvetica,Arial,sans-serif; fill:#333333; text-anchor:middle; }
+    .bs    { font:400 11px Roboto,Helvetica,Arial,sans-serif; fill:#999999; text-anchor:middle; }
+    .ln    { stroke:#8c9a9a; stroke-width:1.5; fill:none; }
+    .lnt   { stroke:#379392; stroke-width:2; fill:none; }
+    .el    { font:400 11px Roboto,Helvetica,Arial,sans-serif; fill:#8c9a9a; }
+    .elt   { font:500 11px Roboto,Helvetica,Arial,sans-serif; fill:#379392; }
+    .note  { font:400 13px Roboto,Helvetica,Arial,sans-serif; fill:#666666; }
+  </style>
+
+  <!-- bands -->
+  <rect class="band" x="20" y="44" width="860" height="148" rx="8"/>
+  <rect class="band" x="20" y="232" width="860" height="196" rx="8"/>
+  <text class="bl" x="38" y="68">REQUEST PATH &#183; SYNCHRONOUS</text>
+  <text class="bl" x="38" y="256">OFF THE REQUEST PATH &#183; ASYNCHRONOUS</text>
+
+  <!-- publish arrow, drawn under the boxes so it reads as one line -->
+  <path class="lnt" d="M500,142 L500,270" marker-end="url(#at)"/>
+  <text class="elt" x="514" y="211">publish event</text>
+
+  <!-- return arrow -->
+  <path class="ln" d="M400,142 L400,166 L129,166 L129,148" marker-end="url(#ag)"/>
+  <text class="el" x="265" y="182" text-anchor="middle">immediate response</text>
+
+  <!-- band 1 boxes -->
+  <rect class="box"  x="44"  y="88" width="170" height="54" rx="6"/>
+  <text class="bt" x="129" y="110">POS App</text>
+  <text class="bs" x="129" y="127">merchant records a sale</text>
+
+  <rect class="boxa" x="345" y="88" width="210" height="54" rx="6"/>
+  <text class="bt" x="450" y="110">Transaction API</text>
+  <text class="bs" x="450" y="127">Golang</text>
+
+  <rect class="box"  x="686" y="88" width="170" height="54" rx="6"/>
+  <text class="bt" x="771" y="110">Database</text>
+  <text class="bs" x="771" y="127">transactions</text>
+
+  <path class="ln" d="M214,115 L339,115" marker-end="url(#ag)"/>
+  <path class="ln" d="M555,115 L680,115" marker-end="url(#ag)"/>
+  <text class="el" x="276" y="108" text-anchor="middle">sale</text>
+  <text class="el" x="617" y="108" text-anchor="middle">write</text>
+
+  <!-- band 2 boxes -->
+  <rect class="boxk" x="345" y="276" width="210" height="52" rx="6"/>
+  <text class="bt" x="450" y="298">Kafka Pub/Sub</text>
+  <text class="bs" x="450" y="315">transaction events</text>
+
+  <rect class="boxa" x="345" y="364" width="210" height="52" rx="6"/>
+  <text class="bt" x="450" y="386">COGS Worker</text>
+  <text class="bs" x="450" y="403">Golang consumer</text>
+
+  <rect class="box"  x="686" y="364" width="170" height="52" rx="6"/>
+  <text class="bt" x="771" y="386">Database</text>
+  <text class="bs" x="771" y="403">COGS values</text>
+
+  <path class="lnt" d="M450,328 L450,358" marker-end="url(#at)"/>
+  <text class="elt" x="466" y="350">consume</text>
+
+  <path class="ln" d="M555,390 L680,390" marker-end="url(#ag)"/>
+  <text class="el" x="617" y="383" text-anchor="middle">recalculate</text>
+
+  <!-- explanatory note -->
+  <text class="note" x="44" y="303">Recalculating cost of goods sold</text>
+  <text class="note" x="44" y="322">touches every affected item, so it</text>
+  <text class="note" x="44" y="341">runs asynchronously &#8212; recording</text>
+  <text class="note" x="44" y="360">a sale never waits for it.</text>
+</svg>
