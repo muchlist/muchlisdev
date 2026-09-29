@@ -2,26 +2,19 @@
 title: "Backend Engineer at Hukumonline (2025 - Present)"
 date: 2026-09-29T09:00:00+08:00
 draft: false
-image: "/img/portfolio/hukumonline-card.svg"
+image: "/img/portfolio/hukumonline.webp"
 showonlyimage: false
 weight: 10
-tags: ["golang", "aws", "lambda", "dynamodb", "rag", "opentelemetry"]
+tags: ["golang", "aws", "lambda", "dynamodb", "rag", "langchain", "opentelemetry"]
 categories: ["backend"]
 ---
 
-Backend Engineer at Indonesia's legal information platform, working on cloud cost and reliability fixes, a serverless MVP, retrieval over case law, and observability. [Golang, Python, AWS].
+Backend Engineer at Indonesia's legal information platform, working on a serverless MVP, retrieval over case law, critical fixes, and observability. [Golang, Python, AWS].
 <!--more-->
 
 Hukumonline is Indonesia's legal information platform, publishing regulations, court decisions, and legal analysis, alongside services for legal professionals and businesses.
 
-The work here has been wide rather than narrow: an expensive bug found in the first week, a greenfield service on a serverless stack, retrieval over a corpus of court decisions, and the observability groundwork that makes all of it debuggable.
-
-#### Cost and reliability
-- Traced roughly **$1,000/month** of avoidable cloud spend to JWT verification keys being fetched from the managed AWS secret store on **every** request, and removed it by loading the keys once at startup and reusing them for the process lifetime.
-
-The keys are an asymmetric pair, and the public half changes rarely — so paying a per-request API call to re-read something that had not changed made the bill scale with traffic rather than with need. The fix was less about caching than about moving the read to the place it belonged: process startup.
-
-- Found and fixed a **memory leak** caused by module-level global state in a Python service retaining objects across requests instead of releasing them.
+The work here has been wide rather than narrow: a greenfield service on a serverless stack, retrieval over a corpus of court decisions, two critical bugs found early on, and the observability groundwork that makes all of it debuggable.
 
 #### Serverless MVP for international expansion
 - Built a new service — an international edition of the platform — on **AWS Lambda** and **DynamoDB**, written in **Golang** rather than a runtime with first-class Lambda support, by wrapping an ordinary Golang router so it could run as a Lambda handler.
@@ -35,12 +28,21 @@ An adapter translates the API Gateway event into a standard `http.Request` and h
 #### Retrieval over case law
 - Built a **RAG chat** over the court decision corpus, answering legal questions from retrieved source documents rather than from model memory alone.
 
-![Retrieval over court decisions][rag]
+![Simplified retrieval flow over court decisions][rag]
+
+The diagram above is a deliberate simplification — it shows the spine of the pipeline, not the system. The production version carries considerably more than a single retrieve-then-answer pass.
 
 - Optimized retrieval queries and tuned the **HNSW** vector index, which is the step that decides whether retrieval is fast enough to sit inside a chat response.
 - Authored a proposal for an **agent and tool** architecture, extending the system beyond single-shot retrieval.
 
 Grounding matters more than usual in this domain: a legal answer that cannot be traced back to a specific decision is not useful, so the retrieved passages are the answer's evidence, not just its prompt.
+
+#### Critical fixes
+- Traced roughly **$1,000/month** of avoidable cloud spend to JWT verification keys being fetched from the managed AWS secret store on **every** request, and removed it by loading the keys once at startup and reusing them for the process lifetime.
+
+The keys are an asymmetric pair, and the public half changes rarely — so paying a per-request API call to re-read something that had not changed made the bill scale with traffic rather than with need. The fix was less about caching than about moving the read to the place it belonged: process startup.
+
+- Found and fixed a **memory leak** caused by module-level global state in a Python service retaining objects across requests instead of releasing them.
 
 #### Observability
 - Drove the initial effort to complete observability coverage with **OpenTelemetry** logging into **Loki**, custom metrics, and **RED metrics** (rate, errors, duration) for service-level visibility.
@@ -56,7 +58,7 @@ The transaction handling follows the approach I wrote up earlier: [Teknik Implem
 #### Tech stack
 1. Golang, Python
 2. AWS Lambda, API Gateway, DynamoDB
-3. Vector search (HNSW), RAG
+3. LangChain, vector search (HNSW), RAG
 4. OpenTelemetry, Loki, Prometheus-style RED metrics
 
 [lambda]: /img/portfolio/hukumonline-lambda.svg
