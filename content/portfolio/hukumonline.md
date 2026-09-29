@@ -1,20 +1,20 @@
 ---
-title: "Backend Engineer at Hukumonline (2025 - Present)"
+title: "Senior Backend & AI Engineer at Hukumonline (2025 - Present)"
 date: 2026-09-29T09:00:00+08:00
 draft: false
 image: "/img/portfolio/hukumonline.webp"
 showonlyimage: false
 weight: 10
 tags: ["golang", "aws", "lambda", "dynamodb", "rag", "langchain", "opentelemetry"]
-categories: ["backend"]
+categories: ["backend", "ai"]
 ---
 
-Backend Engineer at Indonesia's legal information platform, working on a serverless MVP, retrieval over case law, critical fixes, and observability. [Golang, Python, AWS].
+Senior Backend Engineer and Senior AI Engineer at Indonesia's legal information platform, working on a serverless MVP, retrieval over case law, critical fixes, and observability. [Golang, Python, AWS].
 <!--more-->
 
 Hukumonline is Indonesia's legal information platform, publishing regulations, court decisions, and legal analysis, alongside services for legal professionals and businesses.
 
-The work here has been wide rather than narrow: a greenfield service on a serverless stack, retrieval over a corpus of court decisions, two critical bugs found early on, and the observability groundwork that makes all of it debuggable.
+The work splits across both roles: a greenfield service on a serverless stack, retrieval over a corpus of court decisions, two critical bugs found early on, and the observability groundwork that makes all of it debuggable.
 
 #### Serverless MVP for international expansion
 - Built a new service — an international edition of the platform — on **AWS Lambda** and **DynamoDB**, written in **Golang** rather than a runtime with first-class Lambda support, by wrapping an ordinary Golang router so it could run as a Lambda handler.
