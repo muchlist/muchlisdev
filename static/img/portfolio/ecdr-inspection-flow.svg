@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 452" width="900" height="452" role="img" aria-labelledby="t d">
+  <title id="t">How one container inspection is recorded and approved</title>
+  <desc id="d">A tally records the container condition and photographs its sides, then photographs the truck driver in place of a written signature; the foreman approves from a phone rather than in person, the document is exported as a PDF, and the next checkpoint reopens the same container record.</desc>
+
+  <defs>
+    <marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#8c9a9a"/>
+    </marker>
+    <marker id="at" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#379392"/>
+    </marker>
+  </defs>
+
+  <style>
+    .band  { fill:#f7fafa; stroke:#e6eded; stroke-width:1; }
+    .bl    { font:600 11px Roboto,Helvetica,Arial,sans-serif; fill:#8c9a9a; letter-spacing:1.2px; }
+    .box   { fill:#ffffff; stroke:#cdcdcd; stroke-width:1.5; }
+    .boxa  { fill:#ffffff; stroke:#379392; stroke-width:1.5; }
+    .boxk  { fill:#eef7f7; stroke:#379392; stroke-width:1.5; }
+    .bt    { font:500 14px Roboto,Helvetica,Arial,sans-serif; fill:#333333; text-anchor:middle; }
+    .bs    { font:400 11px Roboto,Helvetica,Arial,sans-serif; fill:#999999; text-anchor:middle; }
+    .ln    { stroke:#8c9a9a; stroke-width:1.5; fill:none; }
+    .lnt   { stroke:#379392; stroke-width:2; fill:none; }
+    .el    { font:400 11px Roboto,Helvetica,Arial,sans-serif; fill:#8c9a9a; text-anchor:middle; }
+    .elt   { font:500 11px Roboto,Helvetica,Arial,sans-serif; fill:#379392; text-anchor:middle; }
+    .note  { font:400 13px Roboto,Helvetica,Arial,sans-serif; fill:#666666; text-anchor:middle; }
+  </style>
+
+  <rect class="band" x="20" y="44" width="860" height="130" rx="8"/>
+  <rect class="band" x="20" y="204" width="860" height="210" rx="8"/>
+  <text class="bl" x="38" y="68">TALLY &#183; AT THE CHECKPOINT</text>
+  <text class="bl" x="38" y="228">FOREMAN &#183; WITHOUT THE WALK ACROSS THE YARD</text>
+
+  <path class="ln"  d="M205,120 L261,120" marker-end="url(#ag)"/>
+  <path class="ln"  d="M422,120 L478,120" marker-end="url(#ag)"/>
+  <path class="lnt" d="M639,120 L695,120" marker-end="url(#at)"/>
+  <text class="el"  x="233" y="112">identify</text>
+  <text class="el"  x="450" y="112">inspect</text>
+  <text class="elt" x="667" y="112">then</text>
+
+  <path class="lnt" d="M205,280 L261,280" marker-end="url(#at)"/>
+  <path class="ln"  d="M422,280 L478,280" marker-end="url(#ag)"/>
+  <path class="ln"  d="M639,280 L695,280" marker-end="url(#ag)"/>
+  <text class="elt" x="233" y="272">submit</text>
+  <text class="el"  x="450" y="272">approve</text>
+  <text class="el"  x="667" y="272">reopen</text>
+
+  <rect class="box" x="44"  y="92" width="161" height="56" rx="6"/>
+  <text class="bt" x="125" y="117">Container</text>
+  <text class="bs" x="125" y="135">detail, if new</text>
+
+  <rect class="box" x="261" y="92" width="161" height="56" rx="6"/>
+  <text class="bt" x="341" y="117">Condition</text>
+  <text class="bs" x="341" y="135">status and notes</text>
+
+  <rect class="box" x="478" y="92" width="161" height="56" rx="6"/>
+  <text class="bt" x="559" y="117">Photos</text>
+  <text class="bs" x="559" y="135">six sides</text>
+
+  <rect class="boxk" x="695" y="92" width="161" height="56" rx="6"/>
+  <text class="bt" x="776" y="117">Driver photo</text>
+  <text class="bs" x="776" y="135">instead of a signature</text>
+
+  <rect class="box" x="44"  y="252" width="161" height="56" rx="6"/>
+  <text class="bt" x="125" y="277">Marked ready</text>
+  <text class="bs" x="125" y="295">by the tally</text>
+
+  <rect class="boxa" x="261" y="252" width="161" height="56" rx="6"/>
+  <text class="bt" x="341" y="277">Foreman</text>
+  <text class="bs" x="341" y="295">approves on a phone</text>
+
+  <rect class="box" x="478" y="252" width="161" height="56" rx="6"/>
+  <text class="bt" x="559" y="277">PDF</text>
+  <text class="bs" x="559" y="295">berita acara</text>
+
+  <rect class="box" x="695" y="252" width="161" height="56" rx="6"/>
+  <text class="bt" x="776" y="277">CY&#8209;Stack</text>
+  <text class="bs" x="776" y="295">same container</text>
+
+  <text class="note" x="450" y="345">The paper form had two bottlenecks: getting a signature at the gate, and walking the yard to find a foreman.</text>
+  <text class="note" x="450" y="364">A photo of the driver stands in for the first, approval on a phone removes the second, and the inspection is unchanged.</text>
+  <text class="note" x="450" y="383">Each later checkpoint reopens the same container record, so one box carries its own history from gate to stack.</text>
+</svg>
