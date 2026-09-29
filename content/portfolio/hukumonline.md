@@ -30,6 +30,8 @@ The keys are an asymmetric pair, and the public half changes rarely — so payin
 
 An adapter translates the API Gateway event into a standard `http.Request` and hands it to the router, which means the handlers are written exactly as they would be for any HTTP service. The same binary runs locally as a plain server, so the serverless deployment target never leaked into the application code — which is what let the MVP ship on a short timeline.
 
+> **Fun fact:** cost was part of the brief — the MVP was meant to run at as close to zero infrastructure cost as possible, and on this stack that is more achievable than it sounds. Lambda's free allowance is 1 million requests and 400,000 GB-seconds of compute per month, and DynamoDB's is 25 GB of storage with 25 read and 25 write capacity units in provisioned mode — roughly 200 million requests a month, depending on item size. Neither allowance expires: these are the *always free* tiers, not the 12-month trial. The front door is the part that does run out, since API Gateway's free tier lasts only 12 months — which is what makes a Lambda Function URL the genuinely free entry point.
+
 #### Retrieval over case law
 - Built a **RAG chat** over the court decision corpus, answering legal questions from retrieved source documents rather than from model memory alone.
 
