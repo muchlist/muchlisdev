@@ -14,6 +14,8 @@ Backend and scheduler for Risa, the IT asset and maintenance system used across 
 
 Risa is what IT staff and vendors across seven Pelindo III branches in Kalimantan used to track equipment, maintenance history, daily checks, and stock. This is its backend: a Golang REST API on Fiber, MongoDB for storage, and a scheduler watching device health in the background. The [Flutter app](/portfolio/risa-flutter/) is the other half.
 
+The whole system is a rewrite of [ITventory](/portfolio/inventaris/) from the year before, whose backend was Flask. MongoDB stayed; everything above it was rebuilt. Knowing the domain already is what made it worth moving to Golang — the requirements were not in question, so the rewrite could be about the architecture.
+
 #### One search box across every device type
 - Built `gen_unit`, a projection collection mirroring the fields every device has in common, so that a single search field could find anything in the estate regardless of its category.
 

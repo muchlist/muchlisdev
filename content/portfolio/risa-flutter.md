@@ -14,6 +14,8 @@ The Flutter app IT staff and vendors carried into the field across seven Pelindo
 
 Risa is the mobile half of the IT asset and maintenance system whose [backend](/portfolio/risa-restfull/) I also built. It went to IT staff and vendors across seven Pelindo III branches in Kalimantan: Banjarmasin, Sampit, Bagendang, Kotabaru, Batulicin, Kumai, and Bumiharjo.
 
+It is a ground-up rewrite of [ITventory](/portfolio/inventaris/), which I had built the year before in Kotlin against a Flask backend. Same problem, same users, same port — no code carried over, only what I had learned from running the first one.
+
 It shipped through the Play Store but was never open to the public — access was restricted to Pelindo staff, and the listing has since been taken down.
 
 #### Screenshots
@@ -42,7 +44,7 @@ PDF reports are generated server-side and opened on the device. Alerts arrive th
 
 #### My first Flutter app
 
-The three Android apps before this one — [Kamus IT](/portfolio/kamus-it/), [ITventory](/portfolio/inventaris/), and [ECDR](/portfolio/ecdr/) — were Kotlin with Retrofit and MVVM. Risa is where I moved to Flutter, and it is still the stack I reach for when I need a mobile app.
+The three Android apps before this one — [Kamus IT](/portfolio/kamus-it/), [ITventory](/portfolio/inventaris/), and [ECDR](/portfolio/ecdr/) — were Kotlin with Retrofit and MVVM. Risa is where I moved to Flutter, and it is still the stack I reach for when I need a mobile app. Rewriting an app I already knew inside out was the right place to change language: the requirements were settled, so the only unknown left was the tooling.
 
 #### Structure
 
