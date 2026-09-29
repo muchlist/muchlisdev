@@ -1,24 +1,39 @@
 ---
 name: diagram-style
-description: Draw architecture, flow, or sequence diagrams for the muchlis.dev portfolio as inline SVG matching the site's "sea" theme. Use whenever a portfolio or blog article needs a diagram, a new article image, or an existing diagram edited. Covers the two required variants (detail + card), the exact color and type tokens, layout rules, and the render-and-check step.
+description: Draw architecture, flow, or sequence diagrams for the muchlis.dev portfolio as inline SVG matching the site's "sea" theme. Use whenever a portfolio or blog article needs a diagram, a new article image, or an existing diagram edited. Covers the exact color and type tokens, layout rules, when a thumbnail variant is and is not needed, and the render-and-check step.
 ---
 
 # Diagram style — muchlis.dev
 
 Diagrams on this site are hand-written SVG files in `static/img/portfolio/`, referenced from Markdown. Never inline raw `<svg>` into a `.md` file: Goldmark strips raw HTML unless `unsafe` is enabled, and this site does not enable it.
 
-## Always produce two files
+## Thumbnails are usually not diagrams
 
-A single diagram cannot serve both jobs. The masonry card renders at roughly **260px wide**, where 11–14px text is an unreadable smudge. Make both:
+The masonry card renders at roughly **260px wide**, where 11-14px text is an unreadable smudge. A detail diagram shrunk to that size is a smear, not a thumbnail.
+
+For the company/experience articles this is settled: they use the **company logo** as `image:` (`efishery.webp`, `majoo.webp`, `hukumonline.webp`). Do not build a card diagram for them - a card built for one of these is dead on arrival.
+
+Build a card variant **only** when an article has no logo and no screenshot worth showing. It is then a *simplified restatement*, not a shrunk copy: at most 3 boxes, one vertical flow, no bands, no side notes.
 
 | File | Purpose | viewBox | Min font |
 |---|---|---|---|
 | `<topic>-<subject>.svg` | detail diagram, embedded in the article body | `0 0 900 452` (wide) | 11px |
-| `<topic>-card.svg` | thumbnail, the article's `image:` frontmatter | `0 0 600 400` (3:2) | 20px |
+| `<topic>-card.svg` | thumbnail, **only** absent a logo or screenshot | `0 0 600 400` (3:2) | 20px |
 
-The card is a **simplified restatement**, not a shrunk copy: at most 3 boxes, one vertical flow, no bands, no side notes. Keep the detail diagram for the mechanism.
+An article has one thumbnail, so at most one diagram ever needs a card. A second or third diagram further down the body is a detail file on its own.
 
-**Exception:** an article has only one thumbnail, so only the diagram that feeds `image:` needs a card variant. A second or third diagram placed further down the body is a detail file on its own — do not invent a card for it.
+## Say when a diagram simplifies
+
+A portfolio diagram is a schematic of real production work, and the real thing is usually larger. When the drawing leaves out substance rather than just detail, say so - in the image alt text *and* in the body:
+
+```markdown
+![Simplified retrieval flow over court decisions][rag]
+
+The diagram above is a deliberate simplification - it shows the spine of the
+pipeline, not the system.
+```
+
+Framed this way it reads as an editorial choice rather than an incomplete drawing, and it doubles as a confidentiality boundary: the omission is stated without describing what was omitted.
 
 ## Tokens
 
@@ -81,11 +96,11 @@ Use reference-style links, matching the existing articles:
 [flow]: /img/portfolio/majoo-cogs-flow.svg
 ```
 
-And in frontmatter: `image: "/img/portfolio/majoo-card.svg"`.
+The article's own `image:` frontmatter points at its thumbnail, which for a company article is the logo: `image: "/img/portfolio/majoo.webp"`.
 
 ## Always verify before finishing
 
-Valid XML is not the same as a good diagram. Run all three:
+Valid XML is not the same as a good diagram. Run the parse and the detail render every time; run the 260px render only if you actually built a card:
 
 ```bash
 python3 -c "import xml.etree.ElementTree as ET; ET.parse('static/img/portfolio/NAME.svg')"
@@ -93,8 +108,10 @@ rsvg-convert -w 1350 -b white static/img/portfolio/NAME.svg -o /tmp/check.png   
 rsvg-convert -w 260  -b white static/img/portfolio/NAME-card.svg -o /tmp/check-card.png  # card
 ```
 
-Then **look at both PNGs**. Check for overlapping text, arrows landing short of a box, labels colliding with lines, and lopsided empty space. The 260px render is the one that catches an unusable card.
+Then **look at the PNGs**. Check for overlapping text, arrows landing short of a box, labels colliding with lines, and lopsided empty space. Watch for a band whose boxes leave a wide empty strip - spend that space on a note or shrink the band.
 
 ## Worked example
 
-`static/img/portfolio/majoo-cogs-flow.svg` and `majoo-card.svg` are the reference implementation. Read them before drawing a new one.
+`static/img/portfolio/majoo-cogs-flow.svg` is the reference implementation - read it before drawing a new one. `efishery-flag-manager.svg` and `hukumonline-rag.svg` show the same band grammar applied to a before/after comparison and to a two-stage pipeline.
+
+There is no card example left in the repo: every card variant was deleted once the company articles moved to logos.

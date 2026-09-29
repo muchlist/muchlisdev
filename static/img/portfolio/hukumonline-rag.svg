@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 452" width="900" height="452" role="img" aria-labelledby="t d">
+  <title id="t">Retrieval-augmented chat over Indonesian court decisions</title>
+  <desc id="d">Court decisions are chunked, embedded and stored in an HNSW vector index. A question is embedded and matched against that same index, and the model composes its answer only from the passages the search returned, so every claim points back to a real decision.</desc>
+
+  <defs>
+    <marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#8c9a9a"/>
+    </marker>
+    <marker id="at" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#379392"/>
+    </marker>
+  </defs>
+
+  <style>
+    .band  { fill:#f7fafa; stroke:#e6eded; stroke-width:1; }
+    .bl    { font:600 11px Roboto,Helvetica,Arial,sans-serif; fill:#8c9a9a; letter-spacing:1.2px; }
+    .box   { fill:#ffffff; stroke:#cdcdcd; stroke-width:1.5; }
+    .boxa  { fill:#ffffff; stroke:#379392; stroke-width:1.5; }
+    .boxk  { fill:#eef7f7; stroke:#379392; stroke-width:1.5; }
+    .bt    { font:500 14px Roboto,Helvetica,Arial,sans-serif; fill:#333333; text-anchor:middle; }
+    .bs    { font:400 11px Roboto,Helvetica,Arial,sans-serif; fill:#999999; text-anchor:middle; }
+    .ln    { stroke:#8c9a9a; stroke-width:1.5; fill:none; }
+    .lnt   { stroke:#379392; stroke-width:2; fill:none; }
+    .el    { font:400 11px Roboto,Helvetica,Arial,sans-serif; fill:#8c9a9a; text-anchor:middle; }
+    .elt   { font:500 11px Roboto,Helvetica,Arial,sans-serif; fill:#379392; text-anchor:middle; }
+    .note  { font:400 13px Roboto,Helvetica,Arial,sans-serif; fill:#666666; text-anchor:middle; }
+  </style>
+
+  <!-- bands -->
+  <rect class="band" x="20" y="44" width="860" height="130" rx="8"/>
+  <rect class="band" x="20" y="204" width="860" height="210" rx="8"/>
+  <text class="bl" x="38" y="68">INDEXING &#183; COURT DECISIONS</text>
+  <text class="bl" x="38" y="228">QUERY &#183; ANSWER BUILT FROM WHAT WAS RETRIEVED</text>
+
+  <!-- connectors drawn before boxes -->
+  <path class="ln" d="M234,120 L304,120" marker-end="url(#ag)"/>
+  <path class="ln" d="M494,120 L564,120" marker-end="url(#ag)"/>
+  <text class="el" x="269" y="112">chunks</text>
+  <text class="el" x="529" y="112">vectors</text>
+
+  <path class="lnt" d="M194,280 L254,280" marker-end="url(#at)"/>
+  <path class="lnt" d="M424,280 L484,280" marker-end="url(#at)"/>
+  <path class="lnt" d="M624,280 L684,280" marker-end="url(#at)"/>
+  <text class="elt" x="224" y="272">embed</text>
+  <text class="elt" x="454" y="272">context</text>
+
+  <path class="lnt" d="M339,252 L339,192 L659,192 L659,148" marker-end="url(#at)"/>
+  <text class="elt" x="499" y="184">similarity search</text>
+
+  <!-- band 1: indexing -->
+  <rect class="box"  x="44"  y="92" width="190" height="56" rx="6"/>
+  <text class="bt" x="139" y="115">Court decisions</text>
+  <text class="bs" x="139" y="132">source corpus</text>
+
+  <rect class="box"  x="304" y="92" width="190" height="56" rx="6"/>
+  <text class="bt" x="399" y="115">Chunk + embed</text>
+  <text class="bs" x="399" y="132">embedding model</text>
+
+  <rect class="boxk" x="564" y="92" width="190" height="56" rx="6"/>
+  <text class="bt" x="659" y="115">Vector index</text>
+  <text class="bs" x="659" y="132">HNSW index</text>
+
+  <!-- band 2: query -->
+  <rect class="box"  x="44"  y="252" width="150" height="56" rx="6"/>
+  <text class="bt" x="119" y="275">Question</text>
+  <text class="bs" x="119" y="292">case-law query</text>
+
+  <rect class="boxa" x="254" y="252" width="170" height="56" rx="6"/>
+  <text class="bt" x="339" y="275">Vector search</text>
+  <text class="bs" x="339" y="292">top-k passages</text>
+
+  <rect class="boxa" x="484" y="252" width="140" height="56" rx="6"/>
+  <text class="bt" x="554" y="275">LLM</text>
+  <text class="bs" x="554" y="292">reads the passages</text>
+
+  <rect class="box"  x="684" y="252" width="172" height="56" rx="6"/>
+  <text class="bt" x="770" y="275">Answer</text>
+  <text class="bs" x="770" y="292">with citations</text>
+
+  <!-- note -->
+  <text class="note" x="450" y="345">Answers are composed only from passages the search returns, so each claim traces back to a real decision.</text>
+  <text class="note" x="450" y="364">Tuning the HNSW index is what keeps retrieval fast enough to sit inside a chat response.</text>
+</svg>

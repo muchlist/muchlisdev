@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 452" width="900" height="452" role="img" aria-labelledby="t d">
+  <title id="t">Fresh and non-fresh access tokens</title>
+  <desc id="d">An access token minted at login is marked fresh and is accepted by sensitive routes, while an access token minted from a refresh token carries the same identity and permissions but is rejected until the user proves the password again.</desc>
+
+  <defs>
+    <marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#8c9a9a"/>
+    </marker>
+    <marker id="at" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#379392"/>
+    </marker>
+  </defs>
+
+  <style>
+    .band  { fill:#f7fafa; stroke:#e6eded; stroke-width:1; }
+    .bl    { font:600 11px Roboto,Helvetica,Arial,sans-serif; fill:#8c9a9a; letter-spacing:1.2px; }
+    .box   { fill:#ffffff; stroke:#cdcdcd; stroke-width:1.5; }
+    .boxa  { fill:#ffffff; stroke:#379392; stroke-width:1.5; }
+    .boxk  { fill:#eef7f7; stroke:#379392; stroke-width:1.5; }
+    .bt    { font:500 14px Roboto,Helvetica,Arial,sans-serif; fill:#333333; text-anchor:middle; }
+    .bs    { font:400 11px Roboto,Helvetica,Arial,sans-serif; fill:#999999; text-anchor:middle; }
+    .ln    { stroke:#8c9a9a; stroke-width:1.5; fill:none; }
+    .lnt   { stroke:#379392; stroke-width:2; fill:none; }
+    .el    { font:400 11px Roboto,Helvetica,Arial,sans-serif; fill:#8c9a9a; text-anchor:middle; }
+    .elt   { font:500 11px Roboto,Helvetica,Arial,sans-serif; fill:#379392; text-anchor:middle; }
+    .note  { font:400 13px Roboto,Helvetica,Arial,sans-serif; fill:#666666; text-anchor:middle; }
+  </style>
+
+  <!-- bands -->
+  <rect class="band" x="20" y="44" width="860" height="130" rx="8"/>
+  <rect class="band" x="20" y="204" width="860" height="210" rx="8"/>
+  <text class="bl" x="38" y="68">LOGIN &#183; THE PERSON WAS HERE</text>
+  <text class="bl" x="38" y="228">REFRESH &#183; SAME USER, NOT NECESSARILY PRESENT</text>
+
+  <!-- connectors drawn before boxes -->
+  <path class="lnt" d="M205,120 L261,120" marker-end="url(#at)"/>
+  <path class="lnt" d="M422,120 L478,120" marker-end="url(#at)"/>
+  <path class="lnt" d="M639,120 L695,120" marker-end="url(#at)"/>
+  <text class="elt" x="233" y="112">verify</text>
+  <text class="elt" x="450" y="112">mint</text>
+  <text class="elt" x="667" y="112">accepted</text>
+
+  <path class="ln" d="M205,280 L261,280" marker-end="url(#ag)"/>
+  <path class="ln" d="M422,280 L478,280" marker-end="url(#ag)"/>
+  <path class="ln" d="M639,280 L656,280"/>
+  <path class="ln" d="M662,275 L672,285"/>
+  <path class="ln" d="M672,275 L662,285"/>
+  <text class="el" x="233" y="272">present</text>
+  <text class="el" x="450" y="272">mint</text>
+  <text class="el" x="667" y="263">401</text>
+
+  <!-- band 1: login -->
+  <rect class="box"  x="44"  y="92" width="161" height="56" rx="6"/>
+  <text class="bt" x="124" y="115">Credentials</text>
+  <text class="bs" x="124" y="132">email + password</text>
+
+  <rect class="boxa" x="261" y="92" width="161" height="56" rx="6"/>
+  <text class="bt" x="341" y="115">Auth server</text>
+  <text class="bs" x="341" y="132">checks the password</text>
+
+  <rect class="boxk" x="478" y="92" width="161" height="56" rx="6"/>
+  <text class="bt" x="558" y="115">Access token</text>
+  <text class="bs" x="558" y="132">fresh</text>
+
+  <rect class="boxa" x="695" y="92" width="161" height="56" rx="6"/>
+  <text class="bt" x="775" y="115">Change password</text>
+  <text class="bs" x="775" y="132">requires fresh</text>
+
+  <!-- band 2: refresh -->
+  <rect class="box"  x="44"  y="252" width="161" height="56" rx="6"/>
+  <text class="bt" x="124" y="275">Refresh token</text>
+  <text class="bs" x="124" y="292">from device storage</text>
+
+  <rect class="box"  x="261" y="252" width="161" height="56" rx="6"/>
+  <text class="bt" x="341" y="275">Auth server</text>
+  <text class="bs" x="341" y="292">no password involved</text>
+
+  <rect class="box"  x="478" y="252" width="161" height="56" rx="6"/>
+  <text class="bt" x="558" y="275">Access token</text>
+  <text class="bs" x="558" y="292">not fresh</text>
+
+  <rect class="boxa" x="695" y="252" width="161" height="56" rx="6"/>
+  <text class="bt" x="775" y="275">Change password</text>
+  <text class="bs" x="775" y="292">requires fresh</text>
+
+  <!-- note -->
+  <text class="note" x="450" y="345">Both tokens carry the same user and the same permissions. Only one of them was minted while someone</text>
+  <text class="note" x="450" y="364">was actually proving they knew the password &#8212; which is the only thing the sensitive routes are asking about.</text>
+</svg>

@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 452" width="900" height="452" role="img" aria-labelledby="t d">
+  <title id="t">The gen_unit projection behind a single search box</title>
+  <desc id="d">Every device category keeps its own detailed collection, and each write also mirrors a few common fields into a gen_unit projection, so a single search box can find any device with one query and then open the full record by id.</desc>
+
+  <defs>
+    <marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#8c9a9a"/>
+    </marker>
+    <marker id="at" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#379392"/>
+    </marker>
+  </defs>
+
+  <style>
+    .band  { fill:#f7fafa; stroke:#e6eded; stroke-width:1; }
+    .bl    { font:600 11px Roboto,Helvetica,Arial,sans-serif; fill:#8c9a9a; letter-spacing:1.2px; }
+    .box   { fill:#ffffff; stroke:#cdcdcd; stroke-width:1.5; }
+    .boxa  { fill:#ffffff; stroke:#379392; stroke-width:1.5; }
+    .boxk  { fill:#eef7f7; stroke:#379392; stroke-width:1.5; }
+    .bt    { font:500 14px Roboto,Helvetica,Arial,sans-serif; fill:#333333; text-anchor:middle; }
+    .bs    { font:400 11px Roboto,Helvetica,Arial,sans-serif; fill:#999999; text-anchor:middle; }
+    .ln    { stroke:#8c9a9a; stroke-width:1.5; fill:none; }
+    .lnt   { stroke:#379392; stroke-width:2; fill:none; }
+    .el    { font:400 11px Roboto,Helvetica,Arial,sans-serif; fill:#8c9a9a; text-anchor:middle; }
+    .elt   { font:500 11px Roboto,Helvetica,Arial,sans-serif; fill:#379392; text-anchor:middle; }
+    .note  { font:400 13px Roboto,Helvetica,Arial,sans-serif; fill:#666666; text-anchor:middle; }
+  </style>
+
+  <!-- bands -->
+  <rect class="band" x="20" y="44" width="860" height="130" rx="8"/>
+  <rect class="band" x="20" y="204" width="860" height="210" rx="8"/>
+  <text class="bl" x="38" y="68">WRITE &#183; ONE COLLECTION PER DEVICE TYPE</text>
+  <text class="bl" x="38" y="228">READ &#183; ONE SEARCH BOX, NO CATEGORY PICKER</text>
+
+  <!-- connectors drawn before boxes -->
+  <path class="ln" d="M205,120 L261,120" marker-end="url(#ag)"/>
+  <path class="ln" d="M422,120 L478,120" marker-end="url(#ag)"/>
+  <path class="ln" d="M639,120 L695,120" marker-end="url(#ag)"/>
+  <text class="el" x="233" y="112">save</text>
+  <text class="el" x="450" y="112">mirror</text>
+  <text class="el" x="667" y="112">upsert</text>
+
+  <path class="lnt" d="M205,280 L261,280" marker-end="url(#at)"/>
+  <path class="lnt" d="M422,280 L478,280" marker-end="url(#at)"/>
+  <path class="lnt" d="M639,280 L695,280" marker-end="url(#at)"/>
+  <text class="elt" x="233" y="272">one query</text>
+  <text class="elt" x="450" y="272">match</text>
+  <text class="elt" x="667" y="272">by id</text>
+
+  <!-- band 1: write -->
+  <rect class="box"  x="44"  y="92" width="161" height="56" rx="6"/>
+  <text class="bt" x="124" y="115">Device write</text>
+  <text class="bs" x="124" y="132">create / edit / delete</text>
+
+  <rect class="box"  x="261" y="92" width="161" height="56" rx="6"/>
+  <text class="bt" x="341" y="115">Category collection</text>
+  <text class="bs" x="341" y="132">cctv, computer, app</text>
+
+  <rect class="boxk" x="478" y="92" width="161" height="56" rx="6"/>
+  <text class="bt" x="558" y="115">Projection update</text>
+  <text class="bs" x="558" y="132">common fields only</text>
+
+  <rect class="boxa" x="695" y="92" width="161" height="56" rx="6"/>
+  <text class="bt" x="775" y="115">gen_unit</text>
+  <text class="bs" x="775" y="132">one entry per device</text>
+
+  <!-- band 2: read -->
+  <rect class="box"  x="44"  y="252" width="161" height="56" rx="6"/>
+  <text class="bt" x="124" y="275">Search box</text>
+  <text class="bs" x="124" y="292">one field, any device</text>
+
+  <rect class="boxa" x="261" y="252" width="161" height="56" rx="6"/>
+  <text class="bt" x="341" y="275">gen_unit</text>
+  <text class="bs" x="341" y="292">single lookup</text>
+
+  <rect class="box"  x="478" y="252" width="161" height="56" rx="6"/>
+  <text class="bt" x="558" y="275">Device hit</text>
+  <text class="bs" x="558" y="292">name, ip, category</text>
+
+  <rect class="box"  x="695" y="252" width="161" height="56" rx="6"/>
+  <text class="bt" x="775" y="275">Detail record</text>
+  <text class="bs" x="775" y="292">in its own collection</text>
+
+  <!-- note -->
+  <text class="note" x="450" y="345">A read model maintained by hand: the write path pays a second update so the read path never has to ask</text>
+  <text class="note" x="450" y="364">which kind of device it is looking for. It scans, so it slows as the estate grows &#8212; the ceiling was known.</text>
+</svg>

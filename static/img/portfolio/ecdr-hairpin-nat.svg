@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 452" width="900" height="452" role="img" aria-labelledby="t d">
+  <title id="t">A connection picker in the app, and the Hairpin NAT that made it unnecessary</title>
+  <desc id="d">The shipped workaround asked the user to choose between the office network and the internet so the app would use the right address, while Hairpin NAT makes the router reflect a request for the public address back to the local server, so one address works from anywhere.</desc>
+
+  <defs>
+    <marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#8c9a9a"/>
+    </marker>
+    <marker id="at" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#379392"/>
+    </marker>
+  </defs>
+
+  <style>
+    .band  { fill:#f7fafa; stroke:#e6eded; stroke-width:1; }
+    .bl    { font:600 11px Roboto,Helvetica,Arial,sans-serif; fill:#8c9a9a; letter-spacing:1.2px; }
+    .box   { fill:#ffffff; stroke:#cdcdcd; stroke-width:1.5; }
+    .boxa  { fill:#ffffff; stroke:#379392; stroke-width:1.5; }
+    .boxk  { fill:#eef7f7; stroke:#379392; stroke-width:1.5; }
+    .bt    { font:500 14px Roboto,Helvetica,Arial,sans-serif; fill:#333333; text-anchor:middle; }
+    .bs    { font:400 11px Roboto,Helvetica,Arial,sans-serif; fill:#999999; text-anchor:middle; }
+    .ln    { stroke:#8c9a9a; stroke-width:1.5; fill:none; }
+    .lnt   { stroke:#379392; stroke-width:2; fill:none; }
+    .el    { font:400 11px Roboto,Helvetica,Arial,sans-serif; fill:#8c9a9a; text-anchor:middle; }
+    .elt   { font:500 11px Roboto,Helvetica,Arial,sans-serif; fill:#379392; text-anchor:middle; }
+    .note  { font:400 13px Roboto,Helvetica,Arial,sans-serif; fill:#666666; text-anchor:middle; }
+  </style>
+
+  <rect class="band" x="20" y="44" width="860" height="130" rx="8"/>
+  <rect class="band" x="20" y="204" width="860" height="210" rx="8"/>
+  <text class="bl" x="38" y="68">WHAT I SHIPPED &#183; THE APP ASKS WHICH NETWORK YOU ARE ON</text>
+  <text class="bl" x="38" y="228">HAIRPIN NAT &#183; ONE ADDRESS FROM ANYWHERE</text>
+
+  <path class="ln" d="M205,120 L261,120" marker-end="url(#ag)"/>
+  <path class="ln" d="M422,120 L478,120" marker-end="url(#ag)"/>
+  <path class="ln" d="M639,120 L695,120" marker-end="url(#ag)"/>
+  <text class="el" x="233" y="112">on open</text>
+  <text class="el" x="450" y="112">user picks</text>
+  <text class="el" x="667" y="112">reach</text>
+
+  <path class="lnt" d="M205,280 L261,280" marker-end="url(#at)"/>
+  <path class="lnt" d="M422,280 L478,280" marker-end="url(#at)"/>
+  <path class="lnt" d="M639,280 L695,280" marker-end="url(#at)"/>
+  <text class="elt" x="233" y="272">always</text>
+  <text class="elt" x="450" y="272">reflect</text>
+  <text class="elt" x="667" y="272">reach</text>
+
+  <rect class="box" x="44"  y="92" width="161" height="56" rx="6"/>
+  <text class="bt" x="125" y="117">Phone</text>
+  <text class="bs" x="125" y="135">office wifi or mobile</text>
+
+  <rect class="box" x="261" y="92" width="161" height="56" rx="6"/>
+  <text class="bt" x="341" y="117">Connection A / B</text>
+  <text class="bs" x="341" y="135">a question for the user</text>
+
+  <rect class="box" x="478" y="92" width="161" height="56" rx="6"/>
+  <text class="bt" x="559" y="117">Local or public</text>
+  <text class="bs" x="559" y="135">two addresses</text>
+
+  <rect class="box" x="695" y="92" width="161" height="56" rx="6"/>
+  <text class="bt" x="776" y="117">Flask server</text>
+  <text class="bs" x="776" y="135">Ubuntu box on site</text>
+
+  <rect class="box" x="44"  y="252" width="161" height="56" rx="6"/>
+  <text class="bt" x="125" y="277">Phone</text>
+  <text class="bs" x="125" y="295">anywhere at all</text>
+
+  <rect class="boxa" x="261" y="252" width="161" height="56" rx="6"/>
+  <text class="bt" x="341" y="277">Public IP</text>
+  <text class="bs" x="341" y="295">the only address</text>
+
+  <rect class="boxk" x="478" y="252" width="161" height="56" rx="6"/>
+  <text class="bt" x="559" y="277">Hairpin NAT</text>
+  <text class="bs" x="559" y="295">router turns it inward</text>
+
+  <rect class="boxa" x="695" y="252" width="161" height="56" rx="6"/>
+  <text class="bt" x="776" y="277">Flask server</text>
+  <text class="bs" x="776" y="295">same box, same port</text>
+
+  <text class="note" x="450" y="345">From inside the LAN the router saw a local client, not an outside one, so the forwarding rule never applied.</text>
+  <text class="note" x="450" y="364">The picker worked, but it asked whoever was holding the phone to know which side of the firewall they stood on.</text>
+  <text class="note" x="450" y="383">Hairpin NAT reflects the request back in, so the app can hold one address and stop caring about the network.</text>
+</svg>

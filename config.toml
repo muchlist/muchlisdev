@@ -1,7 +1,7 @@
 baseurl = "https://muchlis.dev"
 title = "Muchlis Portfolio"
 theme = "hugo-creative-portfolio-theme"
-languageCode = "id-ID"
+languageCode = "en-US"
 # Enable comments by entering your Disqus shortname
 disqusShortname = ""
 # Enable Google Analytics by entering your tracking code
@@ -12,9 +12,9 @@ googleAnalytics = ""
   # Use custom.css for your custom styling
   style = "sea"
   description = "Portfolio site of Muchlis"
-  copyright = "&copy;2021 Muchlis"
+  copyright = "&copy;2026 Muchlis"
   sidebarAbout = [
-    "Welcome. I'm Muchlis, a Software Engineer working across two areas: Backend and Mobile Apps.",
+    "Welcome. I'm Muchlis, a Software Engineer working across three areas: Backend, Mobile Apps, and AI.",
     "Banjarmasin, Indonesia."
   ]
   # Contact page
@@ -42,20 +42,20 @@ googleAnalytics = ""
 
   # Nav links in the side bar
   [[params.navlinks]]
-  name = "Portofolio"
+  name = "Portfolio"
   url = "portfolio/"
   home = true
 
   [[params.navlinks]]
   name = "Blog"
-  url = "https://blog.muchlis.dev"
+  url = "https://blog.muchlis.dev/en/"
 
   [[params.navlinks]]
-  name = "Tentang Saya"
+  name = "About"
   url = "about/"
 
   [[params.navlinks]]
-  name = "Kontak"
+  name = "Contact"
   url = "contact/"
 
   [params.social]

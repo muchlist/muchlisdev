@@ -1,31 +1,42 @@
 ---
-title: "Penghargaan pada acara Innoreactivation Pelindo III (2021)"
+title: "Innoreactivation Award, Pelindo III (2021)"
 date: 2021-02-28T21:38:25+08:00
 draft: false
 image: "/img/portfolio/penghargaan.webp"
 showonlyimage: false
 weight: 15
-tags: ["reward"]
-categories: ["backend"]
+tags: ["award"]
+categories: ["android"]
 ---
 
-Penghargaan untuk ide terimplementasi terbaik untuk 2 mobile apps di acara Innoreactivation Pelindo III pada 23 Maret 2021
+Two awards for best implemented idea at Pelindo III's Innoreactivation event on 23 March 2021, for ITventory and ECDR — both in full use across Regional Kalimantan at the time.
 <!--more-->
 
+Alhamdulillah.
 
-Alhamdulillah, puji syukur kepada tuhan. Sebagai pengembang aplikasi mobile (Android) sekaligus backend saya menerima penghargaan atas 2 aplikasi. Aplikasi ini di implementasikan 100% pada seluruh Regional Kalimantan dan Pelabuhan Bagendang. Yaitu aplikasi ITVentory (pemeliharaan perangkat IT) dan ECDR (Electronic Container Damage Reports). Kedua aplikasi ini membawa pengaruh yang baik serta menerima response positif yang diwakili oleh masing-masing General-Manager cabang sehingga memenangkan 2 penghargaan atas ide terimplementasi terbaik.  
+The category was *best implemented idea*, and **implemented** is the word that made it worth winning. Building an internal tool is not the hard part. Getting a region to actually use one is. Both apps were in full use across Regional Kalimantan and Pelabuhan Bagendang, and the case for each was put forward by the General Manager of the branch running it — the business side, not IT.
 
-{{< youtube vpgBQyws3Lc >}}  
- . 
- .   
-#### ITVENTORY
-![itventory]
-Aplikasi inventaris dan pencatatan pemeliharaan pada perangkat IT
+I built both of them, as the Android developer and as the backend developer.
+
+{{< youtube vpgBQyws3Lc >}}
+
+#### ITventory
+
+![ITventory][itventory]
+
+IT asset records, stock, and maintenance history for staff working rolling shifts, where the whole point was that whoever came on next could see what had already happened to a device without having to ask. It is also the direct ancestor of [Risa](/portfolio/risa-flutter/) — the same problem, rebuilt a year later in Flutter and Golang.
+
+[Read the full article](/portfolio/inventaris/).
 
 #### ECDR
-![ecdr]
-Electronic Container Damage Reports
 
+![ECDR][ecdr]
+
+Container damage inspection at the gate. The port kept receiving claims for damage that customers said had happened on its premises, and the paper form carried no photographic evidence by default. ECDR captures all six sides of a container and the driver before it enters, collects witness and foreman approval on the phone instead of on a walk across the yard, and exports the result as a PDF.
+
+The value was never the paper it saved. It was having evidence on file when a claim arrives.
+
+[Read the full article](/portfolio/ecdr/).
 
 [itventory]: /img/portfolio/itventory-demo.webp
 [ecdr]: /img/portfolio/ecdr-demo.webp

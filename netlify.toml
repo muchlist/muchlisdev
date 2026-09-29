@@ -6,3 +6,27 @@
   # Versi Hugo dipin di sini supaya build Netlify sama persis dengan build lokal.
   # Tanpa pin, Netlify memakai default build image-nya yang bisa berubah sewaktu-waktu.
   HUGO_VERSION = "0.148.1"
+
+# The /blog/ section was removed. Its two technical posts were folded into
+# the portfolio articles they belonged to, and the third was a duplicate of
+# the award article. These keep the old URLs working.
+[[redirects]]
+  from = "/blog/local-server-problem"
+  to = "/portfolio/ecdr/"
+  status = 301
+
+[[redirects]]
+  from = "/blog/mvp-problem"
+  to = "/portfolio/kamus-it/"
+  status = 301
+
+[[redirects]]
+  from = "/blog/penghargaaan"
+  to = "/portfolio/penghargaaan/"
+  status = 301
+
+# Index, RSS and anything else under the old section.
+[[redirects]]
+  from = "/blog/*"
+  to = "/portfolio/"
+  status = 301
