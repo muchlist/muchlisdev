@@ -5,11 +5,11 @@ draft: false
 image: "/img/portfolio/kazz-front.webp"
 showonlyimage: false
 weight: 7
-tags: ["flutter", "golang", "genkit", "ai"]
+tags: ["flutter", "golang", "postgresql", "genkit", "ai"]
 categories: ["android", "backend"]
 ---
 
-An expense tracker I designed, built, run, and pay for: 18,000 active users across Asia-Pacific, 410,000 transactions logged, and not one feature locked behind the subscription. [Flutter, Golang].
+An expense tracker I designed, built, and run: 18,000 active users across Asia-Pacific, 410,000 transactions logged, and a free tier whose limits reset instead of running out. [Flutter, Golang, PostgreSQL].
 <!--more-->
 
 > Having nobody to say no is not the same as having no constraints. It only means the constraints are yours now.
@@ -22,15 +22,17 @@ Every engineer inside a company has one: the set of things you are reasonably su
 
 Kazz is that list, built. It is a personal expense tracker: you record what you spend by typing it, saying it, or photographing the receipt, and it tells you where the money went.
 
-The first thing it taught me is the line at the top of this article. The arguments did not stop when I became the only person in the room — they changed owner. Every conviction on that list now bills me personally, every month, which is a more rigorous reviewer than any planning meeting I have sat in.
+The first thing it taught me is the line at the top of this article. The arguments did not stop when I became the only person in the room — they changed owner. Every conviction on that list now has to pay for itself out of the product's own margin, which is a more rigorous reviewer than any planning meeting I have sat in.
 
-#### The subscription gates the clock, not the features
+#### Rationing by the clock, not the padlock
 
-There is a paid tier and it locks nothing. Chat, voice input, receipt scanning — a free account does all of it. What the subscription buys is volume: the free allowances are set loose enough for ordinary daily use, and they reset tomorrow or next week rather than locking anything permanently.
+There is a paid tier and I do want people to buy it. What it sells is headroom, not access.
 
-That inversion is the decision everything else bends around. The reflex is to put the expensive feature behind the wall, precisely because it is the one costing you money. I put the clock there instead. A feature wall tells someone they picked the wrong tier and leaves them looking at a padlock every day; a resetting allowance tells them to come back tomorrow, and most never reach it at all.
+A free account scans a receipt every couple of days, holds a handful of AI conversations a week, keeps a set number of wallets, and records up to a set number of transactions. Those are real limits and they are not loose by accident. What they never are is permanent: nothing is ever spent for good, and every allowance comes back tomorrow or next week. Pro lifts all the ceilings at once.
 
-It also means I cannot forecast cost by counting subscribers, because subscribers are not who generates the load. Eighteen thousand people with working access to a language model, underwritten by one bank account, is not a business model — it is a budget. And a budget is a better design brief than a requirements document, because it answers questions a requirements document leaves open. Where should this data live? Whichever side is cheaper to read it from. How long should the server keep it? Exactly as long as it is needed and not one hour longer.
+The distinction sounds small and it decides how the whole product feels. A padlock tells someone they bought the wrong tier, and it says so again every time they open the screen. A ration tells them to come back tomorrow. One reads as a shop that is closed to you; the other reads as a shop that has sold out of the thing you wanted, which is a far easier thing to forgive — and an easier thing to convert, because the person who keeps hitting a ration already knows exactly what they would be buying.
+
+It also fixes the engineering target. Most users are free users and always will be, so the unit cost of serving one has to be low enough that they are cheap to keep rather than a loss to absorb. That single number is what every decision in [Kazz AI](/portfolio/kazz-ai/) is aimed at, and getting it low enough is why the app pays for its own servers rather than being subsidised by me.
 
 #### Anonymous by design
 
@@ -50,7 +52,7 @@ Most of the list held. The interesting part is *why* in each case, because the r
 
 **Cursor pagination** earned it on the same axis. 410,000 transactions across the user base, and every individual history only grows. Offset pagination degrades precisely where your best users live: a year deep in their own records.
 
-**Trigram search** earned it because people name things themselves. Notes arrive in Indonesian and English, abbreviated, misspelled, full of shop names. Exact matching answers almost none of those queries, and a search box that usually returns nothing is abandoned within a week.
+**Postgres trigram search** earned it because people name things themselves. Notes arrive in Indonesian and English, abbreviated, misspelled, full of shop names. Exact matching answers almost none of those queries, and a search box that usually returns nothing is abandoned within a week.
 
 **Hexagonal architecture** is the honest one. It justified itself exactly once, when the AI layer underneath changed — and the swap never reached the domain, which is the whole promise, and it was kept. Once is a thin return on the discipline it demands. I would still do it, and I will not pretend the payoff arrived more often than that.
 
@@ -59,9 +61,10 @@ Most of the list held. The interesting part is *why* in each case, because the r
 #### Tech stack
 1. Flutter — the Android client, caching the most-opened screens on the device
 2. Golang — the API, hexagonal, with idempotent writes and cursor pagination
-3. Genkit — the AI layer, covered in [Kazz AI](/portfolio/kazz-ai/)
-4. Internationalization and multi-currency, on both the server and the client
-5. The landing page at [kalsel.dev](https://www.kalsel.dev/), also mine
+3. PostgreSQL — including trigram search over user-written notes
+4. Genkit — the AI layer, covered in [Kazz AI](/portfolio/kazz-ai/)
+5. Internationalization and multi-currency, on both the server and the client
+6. The landing page at [kalsel.dev](https://www.kalsel.dev/), also mine
 
 #### Where the name came from
 
