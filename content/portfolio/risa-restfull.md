@@ -1,6 +1,6 @@
 ---
 title: "Risa Restfull-API (2021)"
-date: 2021-02-29T21:38:25+08:00
+date: 2021-02-28T21:38:25+08:00
 draft: false
 image: "/img/portfolio/risa-icon.jpg"
 showonlyimage: false
@@ -86,7 +86,7 @@ hasil pemeriksaan dikirimkan ke user menggunakan `firebase`.
   yang dibutuhkan dao misalnya saat perpindahan dari requestData (data sedikit) ke Data (data banyak). termasuk merubah
   string menjadi ObjectID dan Pengecekan IP address.
 - Dao berkomunikasi langsung ke database. Beberapa kasus juga memastikan inputan huruf besar dan kecil pada inputan
-  database yang caseSensitif untuk memaksimalkan indexing, memastikan nilai yang di input array<T> apabila array nil.
+  database yang caseSensitif untuk memaksimalkan indexing, memastikan nilai yang di input `array<T>` apabila array nil.
 - Api (folder client) merupakan aplikasi pihak luar. aplikasi bisa berkomunikasi dengan api pihak luar menggunakan rest api.
 
 

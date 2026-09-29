@@ -1,6 +1,6 @@
 ---
 title: "Penghargaan pada acara Innoreactivation Pelindo III (2021)"
-date: 2021-02-29T21:38:25+08:00
+date: 2021-02-28T21:38:25+08:00
 draft: false
 image: "/img/portfolio/penghargaan.webp"
 showonlyimage: false
