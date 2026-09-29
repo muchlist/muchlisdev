@@ -17,7 +17,7 @@ KalselDev was a free REST API I ran so that beginner programmers could build aga
 #### Why it existed
 - Built and self-hosted a free REST API with real login and JWT authorization, so that a practice app could exercise the whole authentication cycle rather than a mocked slice of it.
 
-The free practice APIs available at the time mostly accepted `GET` and nothing else. That is enough to render a list and not enough to learn anything about authentication. Without `POST`, `PUT`, and `DELETE` sitting behind a real authorization check, a beginner's portfolio app stops exactly where the interesting questions start: where does the token come from, what happens when it expires, and what is the client supposed to do about it. It was also the first thing I built for other programmers rather than for an employer.
+The free practice APIs available at the time mostly accepted `GET` and nothing else. That is enough to render a list and not enough to learn anything about authentication. Without `POST`, `PUT`, and `DELETE` sitting behind a real authorization check, a beginner's portfolio app stops exactly where the interesting questions start: where does the token come from, what happens when it expires, and what is the client supposed to do about it. It was also the first thing I built for other programmers rather than for an employer — the same conviction I had arrived at two years earlier building [Kamus IT](/portfolio/kamus-it/) against a server of my own instead of a tutorial's mock, only pointed outward this time.
 
 #### The part most people still miss
 
