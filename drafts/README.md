@@ -23,3 +23,15 @@ corrections intact:
 
 The frontmatter still carries portfolio weights. Rewrite it before
 publishing anywhere.
+
+## Corrections made after these drafts were written
+
+- Kazz is **not** offline-first and does not sync on reconnect. The app
+  keeps a local copy of the home screen and issues a conditional request;
+  when nothing has changed the server answers `304` with no body. Note
+  that kalsel.dev still advertises "Works offline", which does not match.
+- Auto-capture from bank and e-wallet notifications is a headline feature
+  and was missing entirely. Capture happens on the device from
+  notifications already delivered, not through a bank connection; the
+  drafts are only turned into transactions once the user accepts them.
+- The AI chat belongs in the main article too, not only in the AI one.
