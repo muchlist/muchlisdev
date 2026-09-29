@@ -1,0 +1,8 @@
+[build]
+  publish = "public"
+  command = "hugo"
+
+[build.environment]
+  # Versi Hugo dipin di sini supaya build Netlify sama persis dengan build lokal.
+  # Tanpa pin, Netlify memakai default build image-nya yang bisa berubah sewaktu-waktu.
+  HUGO_VERSION = "0.148.1"

@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400" role="img" aria-labelledby="t d">
+  <title id="t">Asynchronous COGS pipeline</title>
+  <desc id="d">A POS sale is recorded instantly, an event is published to Kafka Pub/Sub, and a COGS worker recalculates cost of goods sold asynchronously.</desc>
+
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#379392"/>
+    </marker>
+  </defs>
+
+  <style>
+    .bx { fill:#ffffff; stroke:#379392; stroke-width:3; }
+    .bk { fill:#379392; stroke:#379392; stroke-width:3; }
+    .t  { font:500 34px Roboto,Helvetica,Arial,sans-serif; fill:#333333; text-anchor:middle; }
+    .tw { font:500 34px Roboto,Helvetica,Arial,sans-serif; fill:#ffffff; text-anchor:middle; }
+    .s  { font:400 22px Roboto,Helvetica,Arial,sans-serif; fill:#8c9a9a; text-anchor:middle; }
+    .sw { font:400 22px Roboto,Helvetica,Arial,sans-serif; fill:#d8ecec; text-anchor:middle; }
+    .l  { font:500 20px Roboto,Helvetica,Arial,sans-serif; fill:#379392; }
+    .ln { stroke:#379392; stroke-width:3; fill:none; }
+  </style>
+
+  <rect x="0" y="0" width="600" height="400" fill="#ffffff"/>
+
+  <rect class="bx" x="110" y="36" width="380" height="80" rx="10"/>
+  <text class="t" x="300" y="74">POS Sale</text>
+  <text class="s" x="300" y="100">recorded instantly</text>
+
+  <path class="ln" d="M300,116 L300,150" marker-end="url(#a)"/>
+  <text class="l" x="316" y="141">publish</text>
+
+  <rect class="bk" x="110" y="156" width="380" height="80" rx="10"/>
+  <text class="tw" x="300" y="194">Kafka Pub/Sub</text>
+  <text class="sw" x="300" y="220">transaction events</text>
+
+  <path class="ln" d="M300,236 L300,270" marker-end="url(#a)"/>
+  <text class="l" x="316" y="261">consume</text>
+
+  <rect class="bx" x="110" y="276" width="380" height="80" rx="10"/>
+  <text class="t" x="300" y="314">COGS Worker</text>
+  <text class="s" x="300" y="340">recalculates async</text>
+</svg>

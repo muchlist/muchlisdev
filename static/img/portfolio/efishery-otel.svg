@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 452" width="900" height="452" role="img" aria-labelledby="t d">
+  <title id="t">OpenTelemetry instrumentation and distributed tracing at eFishery</title>
+  <desc id="d">Services instrumented with the OpenTelemetry SDK send traces and custom metrics through a collector to dashboards. Because every service shares one trace, a single request can be read end to end as a waterfall, showing which span is actually slow.</desc>
+
+  <defs>
+    <marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#8c9a9a"/>
+    </marker>
+    <marker id="at" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#379392"/>
+    </marker>
+  </defs>
+
+  <style>
+    .band  { fill:#f7fafa; stroke:#e6eded; stroke-width:1; }
+    .bl    { font:600 11px Roboto,Helvetica,Arial,sans-serif; fill:#8c9a9a; letter-spacing:1.2px; }
+    .box   { fill:#ffffff; stroke:#cdcdcd; stroke-width:1.5; }
+    .boxk  { fill:#eef7f7; stroke:#379392; stroke-width:1.5; }
+    .bt    { font:500 14px Roboto,Helvetica,Arial,sans-serif; fill:#333333; text-anchor:middle; }
+    .bs    { font:400 11px Roboto,Helvetica,Arial,sans-serif; fill:#999999; text-anchor:middle; }
+    .ln    { stroke:#8c9a9a; stroke-width:1.5; fill:none; }
+    .lnt   { stroke:#379392; stroke-width:2; fill:none; }
+    .el    { font:400 11px Roboto,Helvetica,Arial,sans-serif; fill:#8c9a9a; text-anchor:middle; }
+    .elt   { font:500 11px Roboto,Helvetica,Arial,sans-serif; fill:#379392; text-anchor:middle; }
+    .note  { font:400 13px Roboto,Helvetica,Arial,sans-serif; fill:#666666; text-anchor:middle; }
+    .sl    { font:400 12px Roboto,Helvetica,Arial,sans-serif; fill:#666666; text-anchor:end; }
+    .bar   { fill:#d3dbdb; }
+    .bark  { fill:#379392; }
+    .tag   { font:500 11px Roboto,Helvetica,Arial,sans-serif; fill:#379392; }
+  </style>
+
+  <!-- bands -->
+  <rect class="band" x="20" y="44" width="860" height="150" rx="8"/>
+  <rect class="band" x="20" y="234" width="860" height="186" rx="8"/>
+  <text class="bl" x="38" y="68">INSTRUMENTATION &#183; TRACES AND CUSTOM METRICS</text>
+  <text class="bl" x="38" y="258">ONE TRACE PER REQUEST &#183; WHERE THE TIME ACTUALLY WENT</text>
+
+  <!-- band 1 connectors -->
+  <path class="lnt" d="M254,123 L354,123" marker-end="url(#at)"/>
+  <text class="elt" x="304" y="115">export</text>
+  <path class="ln" d="M540,113 L600,113 L600,104 L660,104" marker-end="url(#ag)"/>
+  <path class="ln" d="M540,133 L600,133 L600,156 L660,156" marker-end="url(#ag)"/>
+
+  <rect class="box"  x="44"  y="96" width="210" height="54" rx="6"/>
+  <text class="bt" x="149" y="118">Services</text>
+  <text class="bs" x="149" y="135">OTel SDK + custom metrics</text>
+
+  <rect class="boxk" x="360" y="96" width="180" height="54" rx="6"/>
+  <text class="bt" x="450" y="118">OTel Collector</text>
+  <text class="bs" x="450" y="135">one pipeline</text>
+
+  <rect class="box"  x="666" y="82" width="190" height="44" rx="6"/>
+  <text class="bt" x="761" y="110">Traces</text>
+
+  <rect class="box"  x="666" y="134" width="190" height="44" rx="6"/>
+  <text class="bt" x="761" y="162">Metrics</text>
+
+  <!-- band 2: trace waterfall -->
+  <text class="sl" x="214" y="291">incoming request</text>
+  <rect class="bar" x="230" y="278" width="610" height="18" rx="3"/>
+
+  <text class="sl" x="214" y="319">customer-svc</text>
+  <rect class="bar" x="280" y="306" width="520" height="18" rx="3"/>
+
+  <text class="sl" x="214" y="347">auth-svc</text>
+  <rect class="bar" x="300" y="334" width="80" height="18" rx="3"/>
+
+  <text class="sl" x="214" y="375">postgres query</text>
+  <rect class="bark" x="430" y="362" width="330" height="18" rx="3"/>
+  <text class="tag" x="770" y="375">slowest span</text>
+
+  <text class="note" x="450" y="404">One trace ties the whole request together, so the slow step is visible instead of inferred.</text>
+</svg>
