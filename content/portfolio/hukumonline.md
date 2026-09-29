@@ -1,0 +1,61 @@
+---
+title: "Backend Engineer at Hukumonline (2025 - Present)"
+date: 2026-09-29T09:00:00+08:00
+draft: false
+image: "/img/portfolio/hukumonline-card.svg"
+showonlyimage: false
+weight: 10
+tags: ["golang", "aws", "lambda", "dynamodb", "rag", "opentelemetry"]
+categories: ["backend"]
+---
+
+Backend Engineer at Indonesia's legal information platform, working on cloud cost and reliability fixes, a serverless MVP, retrieval over case law, and observability. [Golang, Python, AWS].
+<!--more-->
+
+Hukumonline is Indonesia's legal information platform, publishing regulations, court decisions, and legal analysis, alongside services for legal professionals and businesses.
+
+The work here has been wide rather than narrow: an expensive bug found in the first week, a greenfield service on a serverless stack, retrieval over a corpus of court decisions, and the observability groundwork that makes all of it debuggable.
+
+#### Cost and reliability
+- Traced roughly **$1,000/month** of avoidable cloud spend to JWT verification keys being fetched from the managed AWS secret store on **every** request, and removed it by loading the keys once at startup and reusing them for the process lifetime.
+
+The keys are an asymmetric pair, and the public half changes rarely — so paying a per-request API call to re-read something that had not changed made the bill scale with traffic rather than with need. The fix was less about caching than about moving the read to the place it belonged: process startup.
+
+- Found and fixed a **memory leak** caused by module-level global state in a Python service retaining objects across requests instead of releasing them.
+
+#### Serverless MVP for international expansion
+- Built a new service — an international edition of the platform — on **AWS Lambda** and **DynamoDB**, written in **Golang** rather than a runtime with first-class Lambda support, by wrapping an ordinary Golang router so it could run as a Lambda handler.
+
+![Golang router running on Lambda][lambda]
+
+An adapter translates the API Gateway event into a standard `http.Request` and hands it to the router, which means the handlers are written exactly as they would be for any HTTP service. The same binary runs locally as a plain server, so the serverless deployment target never leaked into the application code — which is what let the MVP ship on a short timeline.
+
+#### Retrieval over case law
+- Built a **RAG chat** over the court decision corpus, answering legal questions from retrieved source documents rather than from model memory alone.
+
+![Retrieval over court decisions][rag]
+
+- Optimized retrieval queries and tuned the **HNSW** vector index, which is the step that decides whether retrieval is fast enough to sit inside a chat response.
+- Authored a proposal for an **agent and tool** architecture, extending the system beyond single-shot retrieval.
+
+Grounding matters more than usual in this domain: a legal answer that cannot be traced back to a specific decision is not useful, so the retrieved passages are the answer's evidence, not just its prompt.
+
+#### Observability
+- Drove the initial effort to complete observability coverage with **OpenTelemetry** logging into **Loki**, custom metrics, and **RED metrics** (rate, errors, duration) for service-level visibility.
+- Attached **trace IDs** to log lines so a single request can be stitched back together across services during debugging.
+
+This is the same groundwork I introduced at [eFishery](/portfolio/efishery/) — it has turned out to be the highest-leverage thing to bring into a team that does not have it yet, because it changes debugging from reading separate logs and guessing into reading one trace.
+
+#### Engineering standards
+- Established a **golden path** Golang repository as a reference implementation for new services, applying **hexagonal architecture**, **interface segregation**, and a proper **unit of work** for transactions.
+
+The transaction handling follows the approach I wrote up earlier: [Teknik Implementasi Database Transaction pada Logic Layer di Backend Golang](https://blog.muchlis.dev/post/db-transaction/) — keeping transaction control in the service layer so the business logic stays independent of the database driver.
+
+#### Tech stack
+1. Golang, Python
+2. AWS Lambda, API Gateway, DynamoDB
+3. Vector search (HNSW), RAG
+4. OpenTelemetry, Loki, Prometheus-style RED metrics
+
+[lambda]: /img/portfolio/hukumonline-lambda.svg
+[rag]: /img/portfolio/hukumonline-rag.svg

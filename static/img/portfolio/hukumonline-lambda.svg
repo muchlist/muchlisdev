@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 452" width="900" height="452" role="img" aria-labelledby="t d">
+  <title id="t">One Golang router running both on AWS Lambda and as a plain HTTP server</title>
+  <desc id="d">An adapter converts an API Gateway event into a standard http.Request before handing it to an ordinary Golang router, so the same handlers run unchanged on Lambda in production and as a normal HTTP server locally.</desc>
+
+  <defs>
+    <marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#8c9a9a"/>
+    </marker>
+    <marker id="at" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#379392"/>
+    </marker>
+  </defs>
+
+  <style>
+    .band  { fill:#f7fafa; stroke:#e6eded; stroke-width:1; }
+    .bl    { font:600 11px Roboto,Helvetica,Arial,sans-serif; fill:#8c9a9a; letter-spacing:1.2px; }
+    .box   { fill:#ffffff; stroke:#cdcdcd; stroke-width:1.5; }
+    .boxa  { fill:#ffffff; stroke:#379392; stroke-width:1.5; }
+    .boxk  { fill:#eef7f7; stroke:#379392; stroke-width:1.5; }
+    .bt    { font:500 14px Roboto,Helvetica,Arial,sans-serif; fill:#333333; text-anchor:middle; }
+    .bs    { font:400 11px Roboto,Helvetica,Arial,sans-serif; fill:#999999; text-anchor:middle; }
+    .ln    { stroke:#8c9a9a; stroke-width:1.5; fill:none; }
+    .lnt   { stroke:#379392; stroke-width:2; fill:none; }
+    .el    { font:400 11px Roboto,Helvetica,Arial,sans-serif; fill:#8c9a9a; text-anchor:middle; }
+    .elt   { font:500 11px Roboto,Helvetica,Arial,sans-serif; fill:#379392; text-anchor:middle; }
+    .note  { font:400 13px Roboto,Helvetica,Arial,sans-serif; fill:#666666; text-anchor:middle; }
+  </style>
+
+  <!-- bands -->
+  <rect class="band" x="20" y="44" width="860" height="130" rx="8"/>
+  <rect class="band" x="20" y="204" width="860" height="210" rx="8"/>
+  <text class="bl" x="38" y="68">PRODUCTION &#183; AWS LAMBDA</text>
+  <text class="bl" x="38" y="228">SAME BINARY &#183; RUN AS A PLAIN HTTP SERVER</text>
+
+  <!-- connectors drawn before boxes -->
+  <path class="lnt" d="M205,120 L261,120" marker-end="url(#at)"/>
+  <path class="lnt" d="M422,120 L478,120" marker-end="url(#at)"/>
+  <path class="lnt" d="M639,120 L695,120" marker-end="url(#at)"/>
+  <text class="elt" x="233" y="112">invoke</text>
+  <text class="elt" x="450" y="112">serve</text>
+  <text class="elt" x="667" y="112">query</text>
+
+  <path class="ln" d="M205,280 L261,280" marker-end="url(#ag)"/>
+  <path class="ln" d="M422,280 L478,280" marker-end="url(#ag)"/>
+  <path class="ln" d="M639,280 L695,280" marker-end="url(#ag)"/>
+  <text class="el" x="233" y="272">start</text>
+  <text class="el" x="450" y="272">serve</text>
+  <text class="el" x="667" y="272">query</text>
+
+  <!-- band 1: lambda -->
+  <rect class="box"  x="44"  y="92" width="161" height="56" rx="6"/>
+  <text class="bt" x="124" y="115">API Gateway</text>
+  <text class="bs" x="124" y="132">HTTP event</text>
+
+  <rect class="boxk" x="261" y="92" width="161" height="56" rx="6"/>
+  <text class="bt" x="341" y="115">Lambda adapter</text>
+  <text class="bs" x="341" y="132">event &#8594; http.Request</text>
+
+  <rect class="boxa" x="478" y="92" width="161" height="56" rx="6"/>
+  <text class="bt" x="558" y="115">Golang router</text>
+  <text class="bs" x="558" y="132">unchanged handlers</text>
+
+  <rect class="box"  x="695" y="92" width="161" height="56" rx="6"/>
+  <text class="bt" x="775" y="115">DynamoDB</text>
+  <text class="bs" x="775" y="132">data store</text>
+
+  <!-- band 2: plain server -->
+  <rect class="box"  x="44"  y="252" width="161" height="56" rx="6"/>
+  <text class="bt" x="124" y="275">Local / CI</text>
+  <text class="bs" x="124" y="292">go run</text>
+
+  <rect class="box"  x="261" y="252" width="161" height="56" rx="6"/>
+  <text class="bt" x="341" y="275">net/http</text>
+  <text class="bs" x="341" y="292">ListenAndServe</text>
+
+  <rect class="boxa" x="478" y="252" width="161" height="56" rx="6"/>
+  <text class="bt" x="558" y="275">Golang router</text>
+  <text class="bs" x="558" y="292">same handlers</text>
+
+  <rect class="box"  x="695" y="252" width="161" height="56" rx="6"/>
+  <text class="bt" x="775" y="275">DynamoDB</text>
+  <text class="bs" x="775" y="292">local or test table</text>
+
+  <!-- note -->
+  <text class="note" x="450" y="345">The adapter converts an API Gateway event into a standard http.Request, so the handlers never learn</text>
+  <text class="note" x="450" y="364">they are on Lambda &#8212; the MVP shipped serverless without a serverless-shaped rewrite.</text>
+</svg>
