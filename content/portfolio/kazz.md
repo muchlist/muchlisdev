@@ -9,61 +9,80 @@ tags: ["flutter", "golang", "postgresql", "genkit", "ai"]
 categories: ["android", "backend"]
 ---
 
-An expense tracker I designed, built, and run: 18,000 active users across Asia-Pacific, 410,000 transactions logged, and a free tier whose limits reset instead of running out. [Flutter, Golang, PostgreSQL].
+A personal expense tracker on Android: record what you spend by typing, speaking, or photographing the receipt, split it across wallets, hold it to a budget, and read what the month actually looked like. [Flutter, Golang, PostgreSQL].
 <!--more-->
 
-> Having nobody to say no is not the same as having no constraints. It only means the constraints are yours now.
+Kazz is mine end to end — the Flutter app, the Go backend, and the landing page at [kalsel.dev](https://www.kalsel.dev/). It runs across Asia-Pacific with more than 18,000 active users and 410,000 transactions logged, rated 4.8 from 181 reviews on [Google Play](https://play.google.com/store/apps/details?id=dev.kalsel.kazz). Android today; iOS later in 2026.
 
-#### The first time nobody could say no
+![The home screen][home]
 
-When eFishery wound down in 2025 I came out of it carrying a list.
+#### What it does
+- record transactions by typing, by voice, or by scanning a receipt
+- capture bank and e-wallet notifications into drafts you review later
+- keep several wallets — cash flow, savings, a hidden-balance pocket, a gold pocket valued at the current price
+- share a wallet with a partner or family, synced in real time
+- budget by week, month, quarter, year, or a range you choose, with alerts
+- classify spending as Need, Want, or Save, the Kakeibo way
+- split a scanned bill evenly, per item, or by percentage
+- track loans and recurring transactions
+- read daily, weekly, and monthly reports, and ask [Kazz AI](/portfolio/kazz-ai/) about any of it
+- work offline, in your own currency, with the numbers synced when you reconnect
 
-Every engineer inside a company has one: the set of things you are reasonably sure are right and have never been allowed to do — not because anyone argued they were wrong, but because each arrived attached to a cost, or a deadline, or a quarter that was already planned. Hexagonal architecture. Idempotent writes. Telemetry across everything rather than across the three endpoints that broke last month. They all lose the same argument, and the argument is never *no*. It is *not now*.
+#### Three ways to get a transaction in
 
-Kazz is that list, built. It is a personal expense tracker: you record what you spend by typing it, saying it, or photographing the receipt, and it tells you where the money went.
+![Logging a transaction][inputs]
 
-The first thing it taught me is the line at the top of this article. The arguments did not stop when I became the only person in the room — they changed owner. Every conviction on that list now has to pay for itself out of the product's own margin, which is a more rigorous reviewer than any planning meeting I have sat in.
+Typing works and nobody enjoys it, so most entries do not start that way. Speak a transaction and it is parsed into amount, category, and wallet. Photograph a receipt and the line items come back itemised.
 
-#### Rationing by the clock, not the padlock
+![Receipt scan][scan]
 
-There is a paid tier and I do want people to buy it. What it sells is headroom, not access.
+There is a quieter fourth route. Kazz can read the notifications your bank and e-wallet apps already post, and hold them as drafts rather than acting on them. Nothing is recorded until you open the list and accept it, which keeps the automation on the right side of the line: it does the typing, you keep the decision.
 
-A free account scans a receipt every couple of days, holds a handful of AI conversations a week, keeps a set number of wallets, and records up to a set number of transactions. Those are real limits and they are not loose by accident. What they never are is permanent: nothing is ever spent for good, and every allowance comes back tomorrow or next week. Pro lifts all the ceilings at once.
+#### Wallets that behave differently
 
-The distinction sounds small and it decides how the whole product feels. A padlock tells someone they bought the wrong tier, and it says so again every time they open the screen. A ration tells them to come back tomorrow. One reads as a shop that is closed to you; the other reads as a shop that has sold out of the thing you wanted, which is a far easier thing to forgive — and an easier thing to convert, because the person who keeps hitting a ration already knows exactly what they would be buying.
+![Wallets and pockets][pockets]
 
-It also fixes the engineering target. Most users are free users and always will be, so the unit cost of serving one has to be low enough that they are cheap to keep rather than a loss to absorb. That single number is what every decision in [Kazz AI](/portfolio/kazz-ai/) is aimed at, and getting it low enough is why the app pays for its own servers rather than being subsidised by me.
+A wallet is not one kind of thing. Cash flow is money you are spending this month. Savings is money you are not. The hidden-balance pocket exists because seeing a number makes it tempting — you can fund it and the balance stays out of sight. The gold pocket tracks weight rather than money and re-values itself as the price moves, so net worth stays honest without you maintaining it.
 
-#### Anonymous by design
+#### How a budget stays current
 
-I started this from the wrong end. The first idea was to make the index itself unreadable — encrypt the data so that holding the database would not be the same as holding the users.
+![How a budget is recalculated][budget]
 
-That is a tempting problem and mostly the wrong one, because it defends the data while leaving the *identities* sitting in plain sight beside it. What I settled on instead was making the user anonymous, including to me.
+A budget in Kazz is a set of pocket-and-category pairs with an amount and a period, so *groceries and eating out, from the household wallet, this month* is one budget rather than three.
 
-An account is reachable only through a one-way hash of its email address, and that hash is the single route in. No name, no phone number, no profile. Which means that as the administrator of my own system I cannot browse my users, list them, or search for one — I have to already know the address, hash it, and look up that exact value. It works the way the Google Play Console does: you can find a specific person if you already know who you are looking for, and you cannot go fishing.
+Keeping its total current is the interesting part. Recalculating inside the request would make saving a transaction slower for everyone, including the overwhelming majority of transactions that no budget is watching. So the write path asks one cheap question first — does any budget care about this pocket and category? — and only then hands the work to a background worker. The screen reads a stored number and adds nothing up.
 
-The cost is real, and worth stating plainly, because a privacy claim with no cost attached usually has no mechanism behind it either. Support gets harder: the first thing I need from anyone who writes in is the address they signed in with, because there is no other route to their account. A system that cannot be browsed cannot be browsed by me either. That is the entire point, and it is also the bill.
+Crossing the alert threshold raises one notification per period rather than one per transaction, and on Pro a budget that reaches its end date is cloned into the next period automatically.
 
-#### Which of those convictions earned their keep
+#### Seeing the shape of a month
 
-Most of the list held. The interesting part is *why* in each case, because the reason is never the one in the article that made you want the technique.
+![Spending heatmap][heatmap]
 
-**Idempotency** earned it immediately. Phones on mobile data retry. Without an idempotency key a retry becomes a second transaction, and a duplicate row in a finance app is not a glitch to be cleaned up later — it is a wrong number in somebody's budget, which they will believe, act on, and blame themselves for.
+Reports run daily, weekly, and monthly, and compare against the period before. A heatmap marks the days money actually left, which is usually a more useful answer than a category total: most people are not overspending steadily, they are overspending on particular days.
 
-**Cursor pagination** earned it on the same axis. 410,000 transactions across the user base, and every individual history only grows. Offset pagination degrades precisely where your best users live: a year deep in their own records.
+Your financial month does not have to start on the 1st — set it to the day you are paid and every report follows.
 
-**Postgres trigram search** earned it because people name things themselves. Notes arrive in Indonesian and English, abbreviated, misspelled, full of shop names. Exact matching answers almost none of those queries, and a search box that usually returns nothing is abandoned within a week.
+#### Shared wallets and two currencies
 
-**Hexagonal architecture** is the honest one. It justified itself exactly once, when the AI layer underneath changed — and the swap never reached the domain, which is the whole promise, and it was kept. Once is a thin return on the discipline it demands. I would still do it, and I will not pretend the payoff arrived more often than that.
+A wallet can be shared with a partner or a parent, and everyone on it sees the same balances as they change. What stays private stays private: sharing is per wallet, not per account.
 
-**Telemetry** stopped being a nice-to-have the moment I was the only one running this. There is no second engineer who happens to notice something is off. The instrumentation *is* the on-call rotation.
+Amounts are stored in the currency they were spent in and displayed in yours, which matters for anyone earning in one place and spending in another.
+
+#### What Kazz does not keep
+
+Sign-in is through Google, and that is all the identity there is — no name, no phone number, no profile. Accounts are addressed by a one-way hash of the email, which means the user list cannot be browsed, including by me.
 
 #### Tech stack
-1. Flutter — the Android client, caching the most-opened screens on the device
+1. Flutter — the Android app, offline-capable, with on-device caching for the busiest screens
 2. Golang — the API, hexagonal, with idempotent writes and cursor pagination
-3. PostgreSQL — including trigram search over user-written notes
-4. Genkit — the AI layer, covered in [Kazz AI](/portfolio/kazz-ai/)
-5. Internationalization and multi-currency, on both the server and the client
-6. The landing page at [kalsel.dev](https://www.kalsel.dev/), also mine
+3. PostgreSQL — including trigram search across user-written notes
+4. Redis and a job queue — budget recalculation, alerts, and scheduled work
+5. Genkit — the AI layer, described in [Kazz AI](/portfolio/kazz-ai/)
+6. OpenTelemetry — traces and metrics across every service call
 
-Kazz is on [Google Play](https://play.google.com/store/apps/details?id=dev.kalsel.kazz), rated 4.8 from 181 reviews.
+[home]: /img/portfolio/kazz-home.webp
+[inputs]: /img/portfolio/kazz-inputs.webp
+[scan]: /img/portfolio/kazz-scan.webp
+[pockets]: /img/portfolio/kazz-pockets.webp
+[budget]: /img/portfolio/kazz-budget-flow.svg
+[heatmap]: /img/portfolio/kazz-heatmap.webp

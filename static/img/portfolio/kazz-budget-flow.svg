@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 452" role="img" aria-labelledby="t d">
+<title id="t">How a budget stays current in Kazz</title>
+<desc id="d">Saving a spend checks a Redis counter for its pocket and category; if no budget tracks that combination the write path stops, otherwise a background worker recalculates the total, stores it on the budget row, and raises one alert per period.</desc>
+<defs>
+<marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#8c9a9a"/></marker>
+<marker id="at" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#379392"/></marker>
+</defs>
+<style>
+.band{fill:#f7fafa;stroke:#e6eded;stroke-width:1}
+.bl{font:600 11px Roboto,Helvetica,Arial,sans-serif;letter-spacing:1.2px;fill:#8c9a9a}
+.box{fill:#ffffff;stroke:#cdcdcd;stroke-width:1.5}
+.boxa{fill:#ffffff;stroke:#379392;stroke-width:1.5}
+.boxk{fill:#eef7f7;stroke:#379392;stroke-width:1.5}
+.bt{font:500 14px Roboto,Helvetica,Arial,sans-serif;fill:#333333;text-anchor:middle}
+.bs{font:400 11px Roboto,Helvetica,Arial,sans-serif;fill:#999999;text-anchor:middle}
+.ag{stroke:#8c9a9a;stroke-width:1.5;fill:none;marker-end:url(#ag)}
+.at{stroke:#379392;stroke-width:2;fill:none;marker-end:url(#at)}
+.la{font:400 11px Roboto,Helvetica,Arial,sans-serif;fill:#8c9a9a;text-anchor:middle}
+.lt{font:500 11px Roboto,Helvetica,Arial,sans-serif;fill:#379392;text-anchor:middle}
+.nt{font:400 13px Roboto,Helvetica,Arial,sans-serif;fill:#666666}
+</style>
+
+<rect class="band" x="24" y="30" width="852" height="170" rx="10"/>
+<text class="bl" x="44" y="54">WRITE PATH &#183; ONE CHEAP QUESTION FIRST</text>
+
+<rect class="band" x="24" y="214" width="852" height="150" rx="10"/>
+<text class="bl" x="44" y="238">WORKER &#183; SO THE SCREEN NEVER ADDS ANYTHING UP</text>
+
+<path class="ag" d="M204 122 H 238"/>
+<path class="ag" d="M454 108 H 500 V 90 H 564"/>
+<path class="at" d="M454 136 H 500 V 154 H 564"/>
+<text class="la" x="532" y="84">none</text>
+<text class="lt" x="532" y="148">one or more</text>
+
+<rect class="box" x="44" y="93" width="160" height="58" rx="6"/>
+<text class="bt" x="124" y="117">Spend saved</text>
+<text class="bs" x="124" y="135">pocket + category</text>
+
+<rect class="boxk" x="244" y="93" width="210" height="58" rx="6"/>
+<text class="bt" x="349" y="117">Budget affection counter</text>
+<text class="bs" x="349" y="135">one per pocket + category</text>
+
+<rect class="box" x="570" y="64" width="190" height="52" rx="6"/>
+<text class="bt" x="665" y="86">Nothing to do</text>
+<text class="bs" x="665" y="104">most spends land here</text>
+
+<rect class="boxa" x="570" y="128" width="190" height="52" rx="6"/>
+<text class="bt" x="665" y="150">Queue a job</text>
+<text class="bs" x="665" y="168">the worker takes it from here</text>
+
+<path class="at" d="M18 293 H 38"/>
+<path class="at" d="M254 293 H 329"/>
+<path class="at" d="M565 293 H 640"/>
+<text class="lt" x="602" y="283">at &#8805; threshold</text>
+
+<rect class="boxa" x="44" y="262" width="210" height="62" rx="6"/>
+<text class="bt" x="149" y="288">Sum the period</text>
+<text class="bs" x="149" y="306">for each affected budget</text>
+
+<rect class="boxa" x="335" y="262" width="230" height="62" rx="6"/>
+<text class="bt" x="450" y="288">Write the totals to the row</text>
+<text class="bs" x="450" y="306">current_spent, percentage_used</text>
+
+<rect class="boxa" x="646" y="262" width="210" height="62" rx="6"/>
+<text class="bt" x="751" y="288">Alert, once per period</text>
+<text class="bs" x="751" y="306">then a push notification</text>
+
+<text class="nt" x="44" y="392">Most transactions touch no budget at all, so the write path asks one cheap question before it does any work.</text>
+<text class="nt" x="44" y="411">A miss on the counter falls back to the database and warms it in the background &#8212; including a zero, so the miss does not repeat.</text>
+<text class="nt" x="44" y="430">The budget screen reads the stored total straight from the row. Nothing is aggregated while somebody is waiting.</text>
+</svg>
