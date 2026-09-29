@@ -25,8 +25,8 @@ For almost three years I worked on internal services used across teams: customer
 
 Coverage that high is only reachable once the business logic stops depending on the database driver and the HTTP layer. Two decisions did most of the work — keeping transaction control in the service layer instead of the repository, and refusing to let one struct travel across every layer. I wrote both up in detail:
 
-- [Teknik Implementasi Database Transaction pada Logic Layer di Backend Golang](https://blog.muchlis.dev/post/db-transaction/) — a `DBTX` abstraction and a `WithAtomic` wrapper that keep transactions atomic without coupling the service layer to pgx or GORM.
-- [Memahami Pentingnya Memisahkan DTO, Entity dan Model](https://blog.muchlis.dev/post/struct-separation/) — why sharing one struct between database, domain, and API turns an external schema change into a codebase-wide edit.
+- [Database Transaction Implementation Techniques in Logic Layer for Golang Backend](https://blog.muchlis.dev/en/post/db-transaction/) — a `DBTX` abstraction and a `WithAtomic` wrapper that keep transactions atomic without coupling the service layer to pgx or GORM.
+- [Understanding the Importance of Separating DTO, Entity and Model](https://blog.muchlis.dev/en/post/struct-separation/) — why sharing one struct between database, domain, and API turns an external schema change into a codebase-wide edit.
 
 #### Internal tooling and libraries
 - Built **Flag Manager**, a feature flag caching library that cut network calls for flag retrieval by **90%**.

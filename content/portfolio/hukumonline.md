@@ -53,7 +53,7 @@ This is the same groundwork I introduced at [eFishery](/portfolio/efishery/) —
 #### Engineering standards
 - Established a **golden path** Golang repository as a reference implementation for new services, applying **hexagonal architecture**, **interface segregation**, and a proper **unit of work** for transactions.
 
-The transaction handling follows the approach I wrote up earlier: [Teknik Implementasi Database Transaction pada Logic Layer di Backend Golang](https://blog.muchlis.dev/post/db-transaction/) — keeping transaction control in the service layer so the business logic stays independent of the database driver.
+The transaction handling follows the approach I wrote up earlier: [Database Transaction Implementation Techniques in Logic Layer for Golang Backend](https://blog.muchlis.dev/en/post/db-transaction/) — keeping transaction control in the service layer so the business logic stays independent of the database driver.
 
 #### Tech stack
 1. Golang, Python
