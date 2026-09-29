@@ -9,7 +9,7 @@ tags: ["golang", "kafka", "prometheus", "pprof"]
 categories: ["backend"]
 ---
 
-Middle Backend Engineer at a SaaS business management platform for MSMEs, focused on cost calculation systems and performance profiling. [Golang, Kafka].
+Mid-level Backend Engineer at a SaaS business management platform for MSMEs, focused on cost calculation systems and performance profiling. [Golang, Kafka].
 <!--more-->
 
 Majoo Indonesia is a SaaS-based business management platform offering POS (Point of Sale), accounting, inventory, CRM, and employee management solutions for MSMEs.

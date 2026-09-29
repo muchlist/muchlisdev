@@ -9,7 +9,7 @@ tags: ["golang", "postgresql", "kafka", "opentelemetry", "redis"]
 categories: ["backend"]
 ---
 
-Middle Backend Engineer at an aquaculture technology company, focused on performance optimization, service architecture, and observability. [Golang, PostgreSQL, Kafka].
+Mid-level Backend Engineer at an aquaculture technology company, focused on performance optimization, service architecture, and observability. [Golang, PostgreSQL, Kafka].
 <!--more-->
 
 eFishery is an aquaculture technology company in Indonesia providing smart feeding systems, financing solutions, and market access for fish and shrimp farmers.

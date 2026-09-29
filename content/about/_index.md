@@ -33,8 +33,8 @@ If you would like to talk something through, reach me through social media or th
 #### Work experience
 1. IT at Pelindo III Sampit, 2015 - 2020
 2. IT at Pelindo III Banjarmasin, 2020 - 2021
-3. Middle Backend Engineer at Majoo Indonesia, 2021 - 2022
-4. Middle Backend Engineer at eFishery, 2022 - 2025
+3. Mid-level Backend Engineer at Majoo Indonesia, 2021 - 2022
+4. Mid-level Backend Engineer at eFishery, 2022 - 2025
 5. Senior Backend Engineer and Senior AI Engineer at Hukumonline, 2025 - present
 
 ---
