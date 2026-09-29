@@ -11,11 +11,11 @@ googleAnalytics = ""
   # Style options: default (pink), blue, green, pink, red, sea, violet
   # Use custom.css for your custom styling
   style = "sea"
-  description = "Situs Portofolio Muchlis"
+  description = "Portfolio site of Muchlis"
   copyright = "&copy;2021 Muchlis"
   sidebarAbout = [
-    "Selamat datang, saya Muchlis, Seorang Software Engineer yang berfokus pada dua bidang, yaitu Backend dan Mobile Apps.",
-    "Banjarmasin-Indonesia."
+    "Welcome. I'm Muchlis, a Software Engineer working across two areas: Backend and Mobile Apps.",
+    "Banjarmasin, Indonesia."
   ]
   # Contact page
      # Since this template is static, the contact form uses www.formspree.io as a
