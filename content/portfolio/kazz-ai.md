@@ -34,6 +34,12 @@ The chat is not a general assistant that happens to know about finance. It is sc
 
 When the answer involves a breakdown, a comparison, or a trend, the reply carries the chart with it. A written total tells you the number; the chart tells you the shape, and the shape is normally what the question was really about.
 
+![How a question is answered][flow]
+
+Several agents and several tools take part in a single answer, and not one of them reaches the database on its own. Every tool calls the same application service an ordinary screen calls, with the same credentials you signed in with — so it inherits that code's authorization and cannot see anything you could not already open for yourself.
+
+On the way back, results are stripped of their record identifiers before any model reads them. Together with an account that is only ever a one-way hash of an email address, that means a conversation about your spending carries amounts, dates and categories, and nothing that points at you or at a row in a table.
+
 #### The monthly review
 
 ![The detailed report][report]
@@ -68,6 +74,7 @@ Chat sessions carry an expiry, and the length is chosen in the app — three hou
 
 The reviews do not run in the request path, which is the same trade I made in [ITventory](/portfolio/inventaris/) in 2020 with a scheduled CCTV ping, and again in [Risa](/portfolio/risa-restfull/) in 2021 with a precomputed read model. Pay on a schedule so the read is free. It was a ping job then and it is a language model now.
 
+[flow]: /img/portfolio/kazz-ai-chat-flow.svg
 [insight]: /img/portfolio/kazz-ai-insight.webp
 [chat]: /img/portfolio/kazz-ai-chat.webp
 [report]: /img/portfolio/kazz-ai-report.webp
