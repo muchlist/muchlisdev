@@ -9,14 +9,14 @@ tags: ["flutter", "dart", "provider", "firebase"]
 categories: ["android"]
 ---
 
-The Flutter app IT staff and vendors carried into the field across seven Pelindo III branches — inventory, daily checks, reports, and alerts. [Flutter, Dart].
+The Flutter app IT staff and vendors carried into the field across seven Pelindo III branches: inventory, daily checks, reports, and alerts. [Flutter, Dart].
 <!--more-->
 
 Risa is the mobile half of the IT asset and maintenance system whose [backend](/portfolio/risa-restfull/) I also built. It went to IT staff and vendors across seven Pelindo III branches in Kalimantan: Banjarmasin, Sampit, Bagendang, Kotabaru, Batulicin, Kumai, and Bumiharjo.
 
-It is a ground-up rewrite of [ITventory](/portfolio/inventaris/), which I had built the year before in Kotlin against a Flask backend. Same problem, same users, same port — no code carried over, only what I had learned from running the first one.
+It is a ground-up rewrite of [ITventory](/portfolio/inventaris/), which I had built the year before in Kotlin against a Flask backend. Same problem, same users, same port. No code carried over, only what I had learned from running the first one.
 
-It shipped through the Play Store but was never open to the public — access was restricted to Pelindo staff, and the listing has since been taken down.
+It shipped through the Play Store but was never open to the public. Access was restricted to Pelindo staff, and the listing has since been taken down.
 
 #### Screenshots
 ![screenshot 1][ss1]
@@ -36,15 +36,15 @@ It shipped through the Play Store but was never open to the public — access wa
 
 #### Written for people holding a phone in a machine room
 
-The daily check is the screen that got the most use, and it is built around the shift the technician is actually working — the list they are handed is generated for that moment, and an item someone flagged as a problem keeps coming back on the next check until it is resolved.
+The daily check is the screen that got the most use, and it is built around the shift the technician is actually working. The list they are handed is generated for that moment, and an item someone flagged as a problem keeps coming back on the next check until it is resolved.
 
-Two details mattered more than they look. Photo evidence is captured and compressed on the device before upload, which is the difference between a report that sends and one that times out. And the search field is a single box: type a name or an IP and the device comes back whatever category it belongs to. That is the user-facing end of the `gen_unit` projection described in the [backend article](/portfolio/risa-restfull/) — the app is the reason that mechanism exists.
+Two details mattered more than they look. Photo evidence is captured and compressed on the device before upload, which is the difference between a report that sends and one that times out. And the search field is a single box: type a name or an IP and the device comes back whatever category it belongs to. That is the user-facing end of the `gen_unit` projection described in the [backend article](/portfolio/risa-restfull/), and the app is the reason that mechanism exists.
 
 PDF reports are generated server-side and opened on the device. Alerts arrive through Firebase Messaging when the backend's hourly job finds a camera failing its ping.
 
 #### My first Flutter app
 
-The three Android apps before this one — [Kamus IT](/portfolio/kamus-it/), [ITventory](/portfolio/inventaris/), and [ECDR](/portfolio/ecdr/) — were Kotlin with Retrofit and MVVM. Risa is where I moved to Flutter, and it is still the stack I reach for when I need a mobile app. Rewriting an app I already knew inside out was the right place to change language: the requirements were settled, so the only unknown left was the tooling.
+The three Android apps before this one ([Kamus IT](/portfolio/kamus-it/), [ITventory](/portfolio/inventaris/), and [ECDR](/portfolio/ecdr/)) were Kotlin with Retrofit and MVVM. Risa is where I moved to Flutter, and it is still the stack I reach for when I need a mobile app. Rewriting an app I already knew inside out was the right place to change language: the requirements were settled, so the only unknown left was the tooling.
 
 #### Structure
 
@@ -57,8 +57,8 @@ The three Android apps before this one — [Kamus IT](/portfolio/kamus-it/), [IT
 4. fl_chart, photo_view, image_picker with flutter_image_compress
 
 #### Source code
-- [risa2](https://github.com/muchlist/risa2) — the Flutter app
-- [risa_restfull](https://github.com/muchlist/risa_restfull) — the Golang backend
+- [risa2](https://github.com/muchlist/risa2): the Flutter app
+- [risa_restfull](https://github.com/muchlist/risa_restfull): the Golang backend
 
 [ss1]: /img/portfolio/risa-ss-1.webp
 [ss2]: /img/portfolio/risa-ss-2.webp

@@ -14,7 +14,7 @@ Mid-level Backend Engineer at an aquaculture technology company, focused on perf
 
 eFishery is an aquaculture technology company in Indonesia providing smart feeding systems, financing solutions, and market access for fish and shrimp farmers.
 
-For almost three years I worked on internal services used across teams: customer, support, auth, and master data. Most of the work came down to three things — making slow things fast, making fragile things maintainable, and making problems visible before they turned into incidents.
+For almost three years I worked on internal services used across teams: customer, support, auth, and master data. Most of the work came down to three things: making slow things fast, making fragile things maintainable, and making problems visible before they turned into incidents.
 
 #### Performance and reliability
 - Optimized PostgreSQL queries, business logic, and the cache mechanism in the customer-service system, improving response times by **60%** while eliminating OOM issues.
@@ -23,10 +23,10 @@ For almost three years I worked on internal services used across teams: customer
 #### Architecture and code quality
 - Refactored and modernized the Customer, Support, and Auth services to **Golang Hexagonal Architecture**, enabling **80%+** unit test coverage and making the codebase considerably easier to maintain.
 
-Coverage that high is only reachable once the business logic stops depending on the database driver and the HTTP layer. Two decisions did most of the work — keeping transaction control in the service layer instead of the repository, and refusing to let one struct travel across every layer. I wrote both up in detail:
+Coverage that high is only reachable once the business logic stops depending on the database driver and the HTTP layer. Two decisions did most of the work: keeping transaction control in the service layer instead of the repository, and refusing to let one struct travel across every layer. I wrote both up in detail:
 
-- [Database Transaction Implementation Techniques in Logic Layer for Golang Backend](https://blog.muchlis.dev/en/post/db-transaction/) — a `DBTX` abstraction and a `WithAtomic` wrapper that keep transactions atomic without coupling the service layer to pgx or GORM.
-- [Understanding the Importance of Separating DTO, Entity and Model](https://blog.muchlis.dev/en/post/struct-separation/) — why sharing one struct between database, domain, and API turns an external schema change into a codebase-wide edit.
+- [Database Transaction Implementation Techniques in Logic Layer for Golang Backend](https://blog.muchlis.dev/en/post/db-transaction/): a `DBTX` abstraction and a `WithAtomic` wrapper that keep transactions atomic without coupling the service layer to pgx or GORM.
+- [Understanding the Importance of Separating DTO, Entity and Model](https://blog.muchlis.dev/en/post/struct-separation/): why sharing one struct between database, domain, and API turns an external schema change into a codebase-wide edit.
 
 #### Internal tooling and libraries
 - Built **Flag Manager**, a feature flag caching library that cut network calls for flag retrieval by **90%**.
@@ -52,7 +52,7 @@ A feature flag gets read on the hot path, often several times in a single reques
 
 ![OpenTelemetry tracing][otel]
 
-Before tracing, locating a slow request meant guessing which service to suspect and then reading each one's logs separately. With every service emitting through one OpenTelemetry pipeline, a request carries a single trace across all of them — so the slow span is read off a waterfall rather than inferred.
+Before tracing, locating a slow request meant guessing which service to suspect and then reading each one's logs separately. With every service emitting through one OpenTelemetry pipeline, a request carries a single trace across all of them, so the slow span is read off a waterfall rather than inferred.
 
 #### Team contributions
 - Authored technical handbooks on OpenTelemetry, Golang profiling, JWT claim standardization, *database transaction gameplay*, and project structure best practices.
