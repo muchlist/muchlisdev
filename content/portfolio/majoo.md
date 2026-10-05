@@ -21,14 +21,14 @@ Cost of goods sold has to be recalculated on every transaction, purchase, or sto
 
 ![COGS calculation flow][flow]
 
-The merchant's sale is recorded and answered straight away. The same API publishes an event, and the COGS worker picks it up on its own pace — so the cost figures catch up without the cashier ever waiting on them.
+The merchant's sale is recorded and answered straight away. The same API publishes an event, and the COGS worker picks it up on its own pace, so the cost figures catch up without the cashier ever waiting on them.
 
 #### Performance and profiling
 - Implemented **Golang Profiling** and **Prometheus** metrics to keep performance optimal and speed up issue resolution, eliminating memory leak issues.
 
 Profiling with `pprof` is what made the memory leak findable in the first place: reading heap allocations with `top` and `list`, watching GC cycles through `GODEBUG=gctrace=1`, and confirming the fix with load testing before and after. I wrote up the full technique afterwards:
 
-- [Profiling Techniques in Golang](https://blog.muchlis.dev/en/post/profiling/) — memory and CPU profiling, GC analysis, and verifying the result with load tests.
+- [Profiling Techniques in Golang](https://blog.muchlis.dev/en/post/profiling/): memory and CPU profiling, GC analysis, and verifying the result with load tests.
 
 #### Team contributions
 - Acted as a dedicated *code reviewer*, maintaining code quality standards across the team.

@@ -16,25 +16,25 @@ IT asset records, stock, maintenance history, and CCTV status for Pelindo III's 
 
 #### The question at every shift change
 
-IT at the Kalimantan branches worked rolling shifts, with coordination running through Banjarmasin. The recurring problem was never recording things. It was continuity: whoever came on next needed to know what had already been tried on a device, by whom, and whether it was finished — without phoning the person who had just gone home.
+IT at the Kalimantan branches worked rolling shifts, with coordination running through Banjarmasin. The recurring problem was never recording things. It was continuity: whoever came on next needed to know what had already been tried on a device, by whom, and whether it was finished, without phoning the person who had just gone home.
 
 Reporting was Excel, and a spreadsheet is a snapshot somebody emails. It cannot answer *what has happened to this device*, because it has nowhere to put the answer.
 
-So the app is built around a log rather than a table. Every entry names who opened it and who closed it, and those are routinely different people — which is the entire point. One in the screenshot reads *DER POSKO 3 — C066, dead, water got into the LAN cable*, opened by ITOPS and closed by somebody else with a note that the vendor had repaired it. The next person on shift reads that instead of asking.
+So the app is built around a log rather than a table. Every entry names who opened it and who closed it, and those are routinely different people. That is the entire point. One in the screenshot reads *DER POSKO 3 / C066, dead, water got into the LAN cable*, opened by ITOPS and closed by somebody else with a note that the vendor had repaired it. The next person on shift reads that instead of asking.
 
-The branch chips along the top carry an open-issue count each — Banjarmasin, Kumai, Sampit — so the regional picture and the local one are the same screen.
+The branch chips along the top carry an open-issue count each (Banjarmasin, Kumai, Sampit), so the regional picture and the local one are the same screen.
 
 #### Pinging CCTV without freezing the screen
 
 Camera status looks like a trivial feature until you implement it. A camera that is down does not refuse quickly; it goes quiet, and you wait out the full timeout. Ping every camera inside the request that draws the screen, and the screen is slowest exactly when the news is worst.
 
-So the ping moved out of the request path. A scheduled job checks the cameras, writes down what it found, and the app reads what was written. The screen answers immediately, and it shows the last twelve hours of status rather than the state of the network at this instant — which is the more useful question anyway, because a camera that flickered six times overnight is a different problem from one that just went down.
+So the ping moved out of the request path. A scheduled job checks the cameras, writes down what it found, and the app reads what was written. The screen answers immediately, and it shows the last twelve hours of status rather than the state of the network at this instant. That is the more useful question anyway, because a camera that flickered six times overnight is a different problem from one that just went down.
 
 Pay on a schedule so the read is free: the same trade I made again in [Risa](/portfolio/risa-restfull/) with `gen_unit`, and that ping job is the direct ancestor of the separate *pingers* service there.
 
 #### QR codes on the hardware
 
-A record is only worth keeping if you can get from the physical object back to it. A printed code per asset and a scanner in the app turn *which PC is this* into a non-question. Generating the codes in bulk is the part that makes it real — nobody labels an estate one sticker at a time.
+A record is only worth keeping if you can get from the physical object back to it. A printed code per asset and a scanner in the app turn *which PC is this* into a non-question. Generating the codes in bulk is the part that makes it real. Nobody labels an estate one sticker at a time.
 
 #### Replacement warnings
 

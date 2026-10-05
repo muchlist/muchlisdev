@@ -7,7 +7,7 @@ title = "Hello, I'm Muchlis"
 
 I'm a Software Engineer working across three areas: Backend, Mobile Apps, and AI. I currently work as a Senior Backend Engineer and Senior AI Engineer at Hukumonline.
 
-My working life did not start in programming. I spent years as a lead technician, in IT, and as a network engineer before writing software professionally from 2018 onward. Since then I have built, optimized, maintained, and documented projects at every company I have worked for, and picked up a few awards along the way — some at official events, some not.
+My working life did not start in programming. I spent years as a lead technician, in IT, and as a network engineer before writing software professionally from 2018 onward. Since then I have built, optimized, maintained, and documented projects at every company I have worked for, and picked up a few awards along the way, some at official events and some not.
 
 I like learning new things, through e-courses and the like, and reading books most of all.
 
@@ -18,15 +18,15 @@ If you would like to talk something through, reach me through social media or th
 ---
 
 #### Skills
-* Backend — Golang, Python
-* Mobile — Flutter
-* Databases — PostgreSQL, MongoDB, MySQL, DynamoDB, Redis
-* Messaging and data — Kafka, KSQLDB, Apache Airflow
-* AI — RAG, vector search, LangChain
-* Cloud — AWS Lambda, API Gateway, DynamoDB
-* Observability — OpenTelemetry, Prometheus, Grafana, Loki
+* Backend: Golang, Python
+* Mobile: Flutter
+* Databases: PostgreSQL, MongoDB, MySQL, DynamoDB, Redis
+* Messaging and data: Kafka, KSQLDB, Apache Airflow
+* AI: RAG, vector search, LangChain
+* Cloud: AWS Lambda, API Gateway, DynamoDB
+* Observability: OpenTelemetry, Prometheus, Grafana, Loki
 * Docker, Linux, Git / GitHub
-* Computer networking — Mikrotik / Cisco
+* Computer networking: Mikrotik / Cisco
 
 ---
 
@@ -40,8 +40,8 @@ If you would like to talk something through, reach me through social media or th
 ---
 
 #### Education
-* Audio Video Engineering (Electronics) — SMKN 5 Banjarmasin
-* Informatics Engineering — Universitas Islam Kalimantan (Uniska) Banjarmasin, extension program
+* Audio Video Engineering (Electronics): SMKN 5 Banjarmasin
+* Informatics Engineering: Universitas Islam Kalimantan (Uniska) Banjarmasin, extension program
 
 
 [1]: /img/muchlis.png

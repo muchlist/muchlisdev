@@ -25,15 +25,15 @@ So the real question was not *how do we monitor servers*. It was *how do we hear
 ![Grafana dashboard for the Banjarmasin CCTV server][image1]
 ![Memory and network detail panels][image2]
 
-That dashboard is the CCTV server: twenty-four cores, 32 GiB of RAM, and around 155 GiB in and 160 GiB out every hour of camera traffic. Drive A: reads 91.37%, in the red — which is where the last section of this article starts.
+That dashboard is the CCTV server: twenty-four cores, 32 GiB of RAM, and around 155 GiB in and 160 GiB out every hour of camera traffic. Drive A: reads 91.37%, in the red, which is where the last section of this article starts.
 
 #### Absence of data is data
 
 Prometheus pulls. It scrapes an exporter on each machine on a schedule instead of waiting to be told something, and the panel labelled *UP (Success Pull)* is the consequence: whether a scrape succeeded is itself a metric, stored on the same timeline as everything else.
 
-A machine that dies stops answering, and that silence is a recorded value you can alert on. With a push-based agent, silence is ambiguous — the agent may have crashed, the network may be down, or nothing at all may be wrong. Pulling is what made *IT finds out before the user calls* possible in the first place.
+A machine that dies stops answering, and that silence is a recorded value you can alert on. With a push-based agent, silence is ambiguous: the agent may have crashed, the network may be down, or nothing at all may be wrong. Pulling is what made *IT finds out before the user calls* possible in the first place.
 
-Past the exporter, Prometheus does not know which operating system it is talking to. `node_exporter` on the Linux boxes and `wmi_exporter` on the Windows ones — the job in the screenshot is named `wmi_cctv` — both arrive as labelled time series, so one set of dashboards and one set of alert rules covered a mixed estate.
+Past the exporter, Prometheus does not know which operating system it is talking to. `node_exporter` on the Linux boxes and `wmi_exporter` on the Windows ones (the job in the screenshot is named `wmi_cctv`) both arrive as labelled time series, so one set of dashboards and one set of alert rules covered a mixed estate.
 
 #### What I would do differently now
 
@@ -41,7 +41,7 @@ Past the exporter, Prometheus does not know which operating system it is talking
 
 The alerting I built was threshold-based: email when a device stops answering, when a resource crosses 90%, when errors exceed a count. Two of those three are right. The resource one is not, at least not for a disk.
 
-A threshold tells you the disk is nearly full. It does not tell you when it will be full, and those are different questions. Drive A: above is at 91.37% with 2.468 TiB still free — at some fill rates that is a fortnight of headroom, at others it is Thursday afternoon. Worse, a threshold crossed by a filling disk stays crossed. The mail arrives tonight, and tomorrow night, and every night until somebody frees space, so it gets routed to a folder — and then the one that mattered is in the folder too.
+A threshold tells you the disk is nearly full. It does not tell you when it will be full, and those are different questions. Drive A: above is at 91.37% with 2.468 TiB still free. At some fill rates that is a fortnight of headroom, at others it is Thursday afternoon. Worse, a threshold crossed by a filling disk stays crossed. The mail arrives tonight, and tomorrow night, and every night until somebody frees space, so it gets routed to a folder, and then the one that mattered is in the folder too.
 
 Prometheus had the answer built in and I did not know about it. `predict_linear()` fits a trend across a range and extrapolates it forward:
 
@@ -52,8 +52,8 @@ predict_linear(wmi_logical_disk_free_bytes{volume="A:"}[6h], 4 * 3600) < 0
 Read aloud: *based on the last six hours, will this volume hit zero inside the next four?* That rule stays quiet while a disk sits at 95% and barely moves, and fires at 60% when something starts writing hard. It alerts on the slope rather than the level, which is the sentence at the top of this article written as a query.
 
 #### Tech stack
-1. Prometheus — scraping and time-series storage
-2. Grafana — dashboards
+1. Prometheus: scraping and time-series storage
+2. Grafana: dashboards
 3. `node_exporter` and `wmi_exporter`
 4. Linux, with alerts delivered over email
 
