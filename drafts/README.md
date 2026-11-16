@@ -26,10 +26,12 @@ publishing anywhere.
 
 ## Corrections made after these drafts were written
 
-- Kazz is **not** offline-first and does not sync on reconnect. The app
-  keeps a local copy of the home screen and issues a conditional request;
-  when nothing has changed the server answers `304` with no body. Note
-  that kalsel.dev still advertises "Works offline", which does not match.
+- Kazz is offline-first for transactions, wallets (pockets), and categories
+  since the sync rollout (money-magnet PR #256, October 2026): changes queue
+  on the phone, push when online, and pull deltas back; home is computed on
+  the phone. The earlier `304`-on-home detail no longer applies to the
+  current app. Kazz AI still needs a connection, and so do voice and receipt
+  capture.
 - Auto-capture from bank and e-wallet notifications is a headline feature
   and was missing entirely. Capture happens on the device from
   notifications already delivered, not through a bank connection; the
