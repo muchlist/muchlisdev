@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" role="img" aria-labelledby="t d">
+<title id="t">How a question about your own money is answered</title>
+<desc id="d">A question passes through several stages to a set of agents, each with tools attached beneath it; every tool goes through the application's own services rather than querying the database directly, record identifiers are removed before results return to the agents, and the answer streams back as it is produced.</desc>
+<defs>
+<marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#8c9a9a"/></marker>
+<marker id="at" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#379392"/></marker>
+</defs>
+<style>
+.band{fill:#f7fafa;stroke:#e6eded;stroke-width:1}
+.bl{font:600 11px Roboto,Helvetica,Arial,sans-serif;letter-spacing:1.2px;fill:#8c9a9a}
+.box{fill:#ffffff;stroke:#cdcdcd;stroke-width:1.5}
+.boxa{fill:#ffffff;stroke:#379392;stroke-width:1.5}
+.boxk{fill:#eef7f7;stroke:#379392;stroke-width:1.5}
+.port{fill:#ffffff;stroke:#379392;stroke-width:1.5}
+.bt{font:500 14px Roboto,Helvetica,Arial,sans-serif;fill:#333333;text-anchor:middle}
+.tt{font:500 12px Roboto,Helvetica,Arial,sans-serif;fill:#333333;text-anchor:middle}
+.bs{font:400 11px Roboto,Helvetica,Arial,sans-serif;fill:#999999;text-anchor:middle}
+.qm{font:500 26px Roboto,Helvetica,Arial,sans-serif;fill:#8c9a9a;text-anchor:middle}
+.ag{stroke:#8c9a9a;stroke-width:1.5;fill:none;marker-end:url(#ag)}
+.at{stroke:#379392;stroke-width:2;fill:none;marker-end:url(#at)}
+.tl{stroke:#379392;stroke-width:2;fill:none}
+.sub{stroke:#379392;stroke-width:1.5;fill:none;stroke-dasharray:4 3}
+.dash{stroke:#8c9a9a;stroke-width:1.5;fill:none;stroke-dasharray:5 4;marker-end:url(#ag)}
+.xm{stroke:#8c9a9a;stroke-width:2;fill:none}
+.la{font:400 11px Roboto,Helvetica,Arial,sans-serif;fill:#8c9a9a}
+.lt{font:500 11px Roboto,Helvetica,Arial,sans-serif;fill:#379392;text-anchor:middle}
+.nt{font:400 13px Roboto,Helvetica,Arial,sans-serif;fill:#666666}
+</style>
+
+<rect class="band" x="24" y="30" width="852" height="232" rx="10"/>
+<text class="bl" x="44" y="54">ONE QUESTION &#183; END TO END</text>
+
+<rect class="band" x="24" y="282" width="852" height="158" rx="10"/>
+<text class="bl" x="44" y="306">TOOLS &#183; THROUGH THE APPLICATION</text>
+
+<path class="ag" d="M174 117 H 204"/>
+<path class="ag" d="M268 117 H 298"/>
+<path class="ag" d="M542 117 H 572"/>
+<path class="at" d="M636 117 H 666"/>
+
+<!-- agent to its tools, n8n style -->
+<path class="sub" d="M362 153 V 192"/>
+<path class="sub" d="M422 153 V 192"/>
+<path class="sub" d="M482 153 V 192"/>
+
+<!-- every tool into the application services -->
+<path class="tl" d="M482 240 V 272 H 362"/>
+<path class="tl" d="M422 240 V 272"/>
+<path class="at" d="M362 240 V 342"/>
+
+<!-- never straight to the database -->
+<path class="dash" d="M506 216 H 536 V 342"/>
+<circle cx="536" cy="300" r="11" fill="#f7fafa"/>
+<path class="xm" d="M530 294 L 542 306"/>
+<path class="xm" d="M542 294 L 530 306"/>
+<text class="la" x="554" y="304">never</text>
+
+<!-- results back to the agents -->
+<path class="at" d="M442 377 H 478"/>
+<path class="at" d="M590 377 H 676"/>
+<text class="lt" x="633" y="369">results</text>
+<path class="at" d="M768 346 V 172 H 522 V 152"/>
+<text class="lt" x="680" y="190">back to the agents</text>
+
+<rect class="box" x="44" y="86" width="130" height="62" rx="6"/>
+<text class="bt" x="109" y="112">Your question</text>
+<text class="bs" x="109" y="130">typed or spoken</text>
+
+<rect class="box" x="208" y="86" width="60" height="62" rx="6"/>
+<text class="qm" x="238" y="126">?</text>
+
+<rect class="boxa" x="302" y="86" width="240" height="62" rx="6"/>
+<text class="bt" x="422" y="112">Agents</text>
+<text class="bs" x="422" y="130">several, not one</text>
+<path class="port" d="M362 143 L 367 148 L 362 153 L 357 148 z"/>
+<path class="port" d="M422 143 L 427 148 L 422 153 L 417 148 z"/>
+<path class="port" d="M482 143 L 487 148 L 482 153 L 477 148 z"/>
+
+<rect class="box" x="576" y="86" width="60" height="62" rx="6"/>
+<text class="qm" x="606" y="126">?</text>
+
+<rect class="boxa" x="670" y="86" width="186" height="62" rx="6"/>
+<text class="bt" x="763" y="112">Answer, streamed</text>
+<text class="bs" x="763" y="130">as it is produced</text>
+
+<circle class="boxa" cx="362" cy="216" r="24"/>
+<text class="tt" x="362" y="220">Tool 1</text>
+<circle class="boxa" cx="422" cy="216" r="24"/>
+<text class="tt" x="422" y="220">Tool 2</text>
+<circle class="boxa" cx="482" cy="216" r="24"/>
+<text class="tt" x="482" y="220">Tool 3</text>
+
+<rect class="boxk" x="282" y="346" width="160" height="62" rx="6"/>
+<text class="bt" x="362" y="372">Application services</text>
+<text class="bs" x="362" y="390">the code a screen calls</text>
+
+<rect class="box" x="482" y="346" width="108" height="62" rx="6"/>
+<text class="bt" x="536" y="382">PostgreSQL</text>
+
+<rect class="boxa" x="680" y="346" width="176" height="62" rx="6"/>
+<text class="bt" x="768" y="372">Identifiers removed</text>
+<text class="bs" x="768" y="390">before a model sees them</text>
+
+<text class="nt" x="44" y="342">A tool never writes its own</text>
+<text class="nt" x="44" y="361">query. It calls the same code</text>
+<text class="nt" x="44" y="380">an ordinary screen calls, and</text>
+<text class="nt" x="44" y="399">inherits its rules.</text>
+
+<text class="nt" x="44" y="466">Results are stripped of record identifiers on the way back, so nothing a model reads carries a handle into the database.</text>
+<text class="nt" x="44" y="485">There is no name, phone number or email address in the system for it to see either. An account is only ever a one-way hash.</text>
+</svg>
